@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="{{ asset('dashboard_files/assets/css/owl.css') }}">
 
     </head>
-    <body style="    margin-top: -100px;">
+    <body style="margin-top: -100px;">
 
     <!-- ***** Preloader Start ***** -->
 <!-------

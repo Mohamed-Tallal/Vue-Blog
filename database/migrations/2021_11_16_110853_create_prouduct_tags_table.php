@@ -10,7 +10,17 @@ class CreateProuductTagsTable extends Migration
     public function up()
     {
         Schema::create('prouduct_tags', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+
+            $table->unsignedBigInteger('post_id');
+            $table->foreign('post_id')->references('id')->on('posts')
+            ->onDelete('cascade')->onUpdate('cascade');
+
+            $table->unsignedBigInteger('tag_id');
+            $table->foreign('tag_id')->references('id')->on('tags')
+            ->onDelete('cascade')->onUpdate('cascade');
+
+
             $table->timestamps();
         });
     }
