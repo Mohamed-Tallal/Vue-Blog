@@ -37783,37 +37783,19 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("header", [
-      _c("nav", { staticClass: "navbar navbar-expand-lg" }, [
-        _c("div", { staticClass: "container" }, [
+  return _c("header", [
+    _c("nav", { staticClass: "navbar navbar-expand-lg" }, [
+      _c(
+        "div",
+        { staticClass: "container" },
+        [
           _c(
-            "a",
-            { staticClass: "navbar-brand", attrs: { href: "index.html" } },
+            "router-link",
+            { staticClass: "navbar-brand", attrs: { to: "/" } },
             [_c("h2", [_vm._v("Stand Blog"), _c("em", [_vm._v(".")])])]
           ),
           _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "navbar-toggler",
-              attrs: {
-                type: "button",
-                "data-toggle": "collapse",
-                "data-target": "#navbarResponsive",
-                "aria-controls": "navbarResponsive",
-                "aria-expanded": "false",
-                "aria-label": "Toggle navigation",
-              },
-            },
-            [_c("span", { staticClass: "navbar-toggler-icon" })]
-          ),
+          _vm._m(0),
           _vm._v(" "),
           _c(
             "div",
@@ -37823,60 +37805,100 @@ var staticRenderFns = [
             },
             [
               _c("ul", { staticClass: "navbar-nav ml-auto" }, [
-                _c("li", { staticClass: "nav-item active" }, [
-                  _c(
-                    "a",
-                    { staticClass: "nav-link", attrs: { href: "index.html" } },
-                    [
-                      _vm._v("Home\n              "),
-                      _c("span", { staticClass: "sr-only" }, [
-                        _vm._v("(current)"),
-                      ]),
-                    ]
-                  ),
-                ]),
+                _c(
+                  "li",
+                  { staticClass: "nav-item active" },
+                  [
+                    _c(
+                      "router-link",
+                      { staticClass: "nav-link", attrs: { to: "/" } },
+                      [
+                        _vm._v("Home\n              "),
+                        _c("span", { staticClass: "sr-only" }, [
+                          _vm._v("(current)"),
+                        ]),
+                      ]
+                    ),
+                  ],
+                  1
+                ),
                 _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    { staticClass: "nav-link", attrs: { href: "about.html" } },
-                    [_vm._v("About Us")]
-                  ),
-                ]),
+                _vm._m(1),
                 _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    { staticClass: "nav-link", attrs: { href: "blog.html" } },
-                    [_vm._v("Blog Entries")]
-                  ),
-                ]),
+                _vm._m(2),
                 _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { href: "post-details.html" },
-                    },
-                    [_vm._v("Post Details")]
-                  ),
-                ]),
+                _vm._m(3),
                 _vm._v(" "),
-                _c("li", { staticClass: "nav-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: { href: "contact.html" },
-                    },
-                    [_vm._v("Contact Us")]
-                  ),
-                ]),
+                _vm._m(4),
               ]),
             ]
           ),
-        ]),
+        ],
+        1
+      ),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#navbarResponsive",
+          "aria-controls": "navbarResponsive",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation",
+        },
+      },
+      [_c("span", { staticClass: "navbar-toggler-icon" })]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "about.html" } }, [
+        _vm._v("About Us"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "blog.html" } }, [
+        _vm._v("Blog Entries"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c(
+        "a",
+        { staticClass: "nav-link", attrs: { href: "post-details.html" } },
+        [_vm._v("Post Details")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "nav-item" }, [
+      _c("a", { staticClass: "nav-link", attrs: { href: "contact.html" } }, [
+        _vm._v("Contact Us"),
       ]),
     ])
   },
