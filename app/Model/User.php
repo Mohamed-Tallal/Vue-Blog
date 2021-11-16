@@ -28,12 +28,22 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
+
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    function posts(){
+        return $this->hasMany(Post::class,'user_id');
+    }
+
+    function comments(){
+        return $this->hasMany(Comment::class,'user_id');
+    }
+
+    function replys(){
+        return $this->hasMany(ReplyComment::class,'user_id');
+    }
+
+
 }
