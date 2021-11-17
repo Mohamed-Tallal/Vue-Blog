@@ -1,5 +1,6 @@
 <?php
 
+use App\Model\Category;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -11,6 +12,22 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        Category::create([
+            'tittle' =>  'Nature'
+        ]);
+
+        Category::create([
+            'tittle' =>  'Life Style'
+        ]);
+
+        Category::create([
+            'tittle' =>  'Fashion'
+        ]);
+
+        Category::create([
+            'tittle' =>  'Programming'
+        ]);
+
+
     }
 }

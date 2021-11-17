@@ -1,9 +1,8 @@
 <?php
 
-use App\Model\ReplyComment;
 use Illuminate\Database\Seeder;
-
-class ReplySeeder extends Seeder
+use Illuminate\Support\Facades\DB ;
+class PostTagSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,11 +11,9 @@ class ReplySeeder extends Seeder
      */
     public function run()
     {
-        ReplyComment::create([
-            'reply' => '' ,
+        DB::table('post_tags')->insert([
             'post_id' => '',
-            'user_id' => '',
-            'comment_id' => '',
+            'tag_id' => ''
         ]);
     }
 }
