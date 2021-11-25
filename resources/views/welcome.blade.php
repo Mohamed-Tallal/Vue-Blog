@@ -43,7 +43,7 @@
             <section class="blog-posts ">
                 <div class="container">
                   <div class="row">
-                      <router-view></router-view>
+                    <router-view></router-view>
                     <side-par></side-par>
                   </div>
                 </div>

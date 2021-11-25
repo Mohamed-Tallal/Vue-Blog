@@ -13,10 +13,10 @@ class ReplySeeder extends Seeder
     public function run()
     {
         ReplyComment::create([
-            'reply' => '' ,
-            'post_id' => '',
-            'user_id' => '',
-            'comment_id' => '',
+            'reply' => 'reply' ,
+            'post_id' => rand(1,20),
+            'user_id' => rand(1,5),
+            'comment_id' => rand(1,20),
         ]);
     }
 }

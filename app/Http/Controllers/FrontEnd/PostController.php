@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers\FrontEnd;
 
-use App\Http\Controllers\Controller;
+use App\Model\Post;
 use Illuminate\Http\Request;
+use App\Repository\PostRepository;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\PostResource;
+use App\Interfaces\PostRepositoryInterface;
 
 class PostController extends Controller
 {
+    private $post = '' ;
+    public function __construct(PostRepository $postRepository)
+    {
+        $this->post = $postRepository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +23,15 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        //        $test = Post::orderBy('id', 'DESC')->select('image')->paginate(1);
+        // return $test;
+        $post = $this->post->get_post_data() ;
+         return response()->json(PostResource::collection($post));
+        //return response()->json($post );
+
+   ;
+
+
     }
 
     /**
