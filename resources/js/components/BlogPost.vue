@@ -1,7 +1,7 @@
 <template>
         <div class="col-lg-8">
             <div class="all-blog-posts">
-                <div class="row">
+                <div class="row" v-for="(post,i) in posts.data" :key="i">
                     <div class="col-lg-12">
                         <div class="blog-post">
                           <div class="blog-thumb">
@@ -9,20 +9,21 @@
                           </div>
                           <div class="down-content">
                             <span>Lifestyle</span>
-                            <a href="post-details.html"><h4>Best Template Website for HTML CSS</h4></a>
+                            <a href="post-details.html"><h4>{{post.tittle}}</h4></a>
                             <ul class="post-info">
-                              <li><a href="#">Admin</a></li>
-                              <li><a href="#">May 31, 2020</a></li>
-                              <li><a href="#">12 Comments</a></li>
+                              <li><a href="#">{{post.user_name}}</a></li>
+                              <li><a href="#">{{post.created_at}}</a></li>
+                              <li><a href="#">{{post.comments}}</a></li>
                             </ul>
-                            <p>Stand Blog is a free HTML CSS template for your CMS theme. You can easily adapt or customize it for any kind of CMS or website builder. You are allowed to use it for your business. You are NOT allowed to re-distribute the template ZIP file on any template collection site for the download purpose. <a rel="nofollow" href="https://templatemo.com/contact" target="_parent">Contact TemplateMo</a> for more info. Thank you.</p>
+                            <p>{{post.desc}}</p>
                             <div class="post-options">
                               <div class="row">
                                 <div class="col-6">
-                                  <ul class="post-tags">
-                                    <li><i class="fa fa-tags"></i></li>
-                                    <li><a href="#">Beauty</a>,</li>
-                                    <li><a href="#">Nature</a></li>
+                                <ul class="post-tags ">
+                                    <li><i class="fa fa-tags" ></i></li>
+                                    <li v-for="(tage) in post.tages" :key="tage.id">
+                                        <a href="#">{{ ' '+ tage.tittle }}<span v-if="tage.length !== 0"> , </span></a>
+                                    </li>
                                   </ul>
                                 </div>
                                 <div class="col-6">
@@ -38,6 +39,42 @@
                         </div>
                     </div>
                 </div>
+                <pagination :data="posts" @pagination-change-page="getData"></pagination>
+
             </div>
         </div>
 </template>
+<script>
+export default {
+        data() {
+            return {
+                posts:[]
+            }
+        },
+          beforeCreate(){
+           alert("beforeCreate")
+        },
+        mounted(){
+             this.getData();
+            console.log(this.posts)
+
+        },
+        methods: {
+            getData(page = 1){
+                axios.get('api/post?page=' + page).then(res => {
+                    this.posts = res.data
+                    console.log(this.posts)
+                }).catch(error => {
+                    console.log(error)
+
+                });
+            }
+        },
+         created() {
+        this.getData()
+        console.log(this.posts.data)
+    }
+
+
+}
+</script>

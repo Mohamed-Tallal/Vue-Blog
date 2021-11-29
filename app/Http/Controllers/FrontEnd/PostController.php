@@ -4,6 +4,7 @@ namespace App\Http\Controllers\FrontEnd;
 
 use App\Model\Post;
 use Illuminate\Http\Request;
+use App\Traits\ShowDatalTrait;
 use App\Repository\PostRepository;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
@@ -11,6 +12,7 @@ use App\Interfaces\PostRepositoryInterface;
 
 class PostController extends Controller
 {
+    use ShowDatalTrait ;
     private $post = '' ;
     public function __construct(PostRepository $postRepository)
     {
@@ -26,7 +28,8 @@ class PostController extends Controller
         //        $test = Post::orderBy('id', 'DESC')->select('image')->paginate(1);
         // return $test;
         $post = $this->post->get_post_data() ;
-         return response()->json(PostResource::collection($post));
+        $data = PostResource::collection($post) ;
+         return $this->SuccessWithData('Paginate 5 Posts data ',$data);
         //return response()->json($post );
 
    ;
