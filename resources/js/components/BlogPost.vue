@@ -1,8 +1,8 @@
 <template>
         <div class="col-lg-8">
             <div class="all-blog-posts">
-                <div class="row" v-for="(post,i) in posts.data" :key="i">
-                    <div class="col-lg-12">
+                <div class="row" >
+                    <div class="col-lg-12" v-for="(post) in posts.data" :key="post.id">
                         <div class="blog-post">
                           <div class="blog-thumb">
                             <img style="margin-top: 5rem" src="http://127.0.0.1:8000/dashboard_files/assets/images/blog-post01.jpg" alt="">
@@ -21,8 +21,8 @@
                                 <div class="col-6">
                                 <ul class="post-tags ">
                                     <li><i class="fa fa-tags" ></i></li>
-                                    <li v-for="(tage) in post.tages" :key="tage.id">
-                                        <a href="#">{{ ' '+ tage.tittle }}<span v-if="tage.length !== 0"> , </span></a>
+                                    <li v-for="(tage,index) in post.tages" :key="index">
+                                        <a href="#">{{ ' '+ tage.tittle }}<span v-if="index+1 != post.tages.length"> , </span></a>
                                     </li>
                                   </ul>
                                 </div>
@@ -38,8 +38,12 @@
                           </div>
                         </div>
                     </div>
+                <div class="col-lg-12">
+                  <div class="main-button">
+                    <a @click="getData(2)" style="color:#fff" v-if="this.posts.count/(this.page*5) !== 1">Load More Posts</a>
+                  </div>
                 </div>
-                <pagination :data="posts" @pagination-change-page="getData"></pagination>
+                </div>
 
             </div>
         </div>
@@ -48,7 +52,8 @@
 export default {
         data() {
             return {
-                posts:[]
+                posts:[],
+                page :1
             }
         },
           beforeCreate(){
@@ -60,20 +65,24 @@ export default {
 
         },
         methods: {
-            getData(page = 1){
-                axios.get('api/post?page=' + page).then(res => {
+            getData(pages =1){
+                    if(pages !==1){
+                        this.page ++
+                    }
+                axios.get('api/post?item=' + this.page).then(res => {
                     this.posts = res.data
                     console.log(this.posts)
                 }).catch(error => {
                     console.log(error)
 
                 });
-            }
+            },
         },
-         created() {
-        this.getData()
-        console.log(this.posts.data)
-    }
+        // created() {
+        //this.getData()
+        //console.log(this.posts.data)
+        //this.$route.query.test
+    //}
 
 
 }

@@ -1954,10 +1954,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      posts: []
+      posts: [],
+      page: 1
     };
   },
   beforeCreate: function beforeCreate() {
@@ -1971,19 +1976,25 @@ __webpack_require__.r(__webpack_exports__);
     getData: function getData() {
       var _this = this;
 
-      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get('api/post?page=' + page).then(function (res) {
+      var pages = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+
+      if (pages !== 1) {
+        this.page++;
+      }
+
+      axios.get('api/post?item=' + this.page).then(function (res) {
         _this.posts = res.data;
         console.log(_this.posts);
       })["catch"](function (error) {
         console.log(error);
       });
     }
-  },
-  created: function created() {
-    this.getData();
-    console.log(this.posts.data);
-  }
+  } // created() {
+  //this.getData()
+  //console.log(this.posts.data)
+  //this.$route.query.test
+  //}
+
 });
 
 /***/ }),
@@ -38259,13 +38270,13 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "col-lg-8" }, [
-    _c(
-      "div",
-      { staticClass: "all-blog-posts" },
-      [
-        _vm._l(_vm.posts.data, function (post, i) {
-          return _c("div", { key: i, staticClass: "row" }, [
-            _c("div", { staticClass: "col-lg-12" }, [
+    _c("div", { staticClass: "all-blog-posts" }, [
+      _c(
+        "div",
+        { staticClass: "row" },
+        [
+          _vm._l(_vm.posts.data, function (post) {
+            return _c("div", { key: post.id, staticClass: "col-lg-12" }, [
               _c("div", { staticClass: "blog-post" }, [
                 _vm._m(0, true),
                 _vm._v(" "),
@@ -38307,11 +38318,11 @@ var render = function () {
                           [
                             _vm._m(1, true),
                             _vm._v(" "),
-                            _vm._l(post.tages, function (tage) {
-                              return _c("li", { key: tage.id }, [
+                            _vm._l(post.tages, function (tage, index) {
+                              return _c("li", { key: index }, [
                                 _c("a", { attrs: { href: "#" } }, [
                                   _vm._v(_vm._s(" " + tage.tittle)),
-                                  tage.length !== 0
+                                  index + 1 != post.tages.length
                                     ? _c("span", [_vm._v(" , ")])
                                     : _vm._e(),
                                 ]),
@@ -38327,17 +38338,31 @@ var render = function () {
                   ]),
                 ]),
               ]),
+            ])
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-12" }, [
+            _c("div", { staticClass: "main-button" }, [
+              this.posts.count / (this.page * 5) !== 1
+                ? _c(
+                    "a",
+                    {
+                      staticStyle: { color: "#fff" },
+                      on: {
+                        click: function ($event) {
+                          return _vm.getData(2)
+                        },
+                      },
+                    },
+                    [_vm._v("Load More Posts")]
+                  )
+                : _vm._e(),
             ]),
-          ])
-        }),
-        _vm._v(" "),
-        _c("pagination", {
-          attrs: { data: _vm.posts },
-          on: { "pagination-change-page": _vm.getData },
-        }),
-      ],
-      2
-    ),
+          ]),
+        ],
+        2
+      ),
+    ]),
   ])
 }
 var staticRenderFns = [
@@ -54288,15 +54313,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*!**********************************************!*\
   !*** ./resources/js/components/BlogPost.vue ***!
   \**********************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _BlogPost_vue_vue_type_template_id_bdf3a066___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BlogPost.vue?vue&type=template&id=bdf3a066& */ "./resources/js/components/BlogPost.vue?vue&type=template&id=bdf3a066&");
 /* harmony import */ var _BlogPost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BlogPost.vue?vue&type=script&lang=js& */ "./resources/js/components/BlogPost.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _BlogPost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _BlogPost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -54326,7 +54350,7 @@ component.options.__file = "resources/js/components/BlogPost.vue"
 /*!***********************************************************************!*\
   !*** ./resources/js/components/BlogPost.vue?vue&type=script&lang=js& ***!
   \***********************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

@@ -4,12 +4,13 @@ namespace App\Traits;
 
 trait ShowDatalTrait{
 
-    public function SuccessWithData($mesage,$data){
+    public function SuccessWithData($mesage,$data, $count= null) {
 
         return[
             'statues' => true,
             'code' => 200,
             'message' => $mesage,
+            'count' =>$count,
             'data' => $data
             ];
     }

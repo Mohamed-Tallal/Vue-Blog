@@ -23,13 +23,14 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //        $test = Post::orderBy('id', 'DESC')->select('image')->paginate(1);
         // return $test;
-        $post = $this->post->get_post_data() ;
+        $count = $this->post->count_posts();
+        $post = $this->post->get_post_data($request->item) ;
         $data = PostResource::collection($post) ;
-         return $this->SuccessWithData('Paginate 5 Posts data ',$data);
+         return $this->SuccessWithData('Paginate 5 Posts data ',$data,$count);
         //return response()->json($post );
 
    ;
