@@ -9,7 +9,8 @@
                           </div>
                           <div class="down-content">
                             <span>Lifestyle</span>
-                            <a href="post-details.html"><h4>{{post.tittle}}</h4></a>
+                            <router-link  :to="{path:'/post-details/' + post.id ,params: { id:  post.id}}"><h4>{{post.tittle}}</h4>
+                            </router-link>
                             <ul class="post-info">
                               <li><a href="#">{{post.user_name}}</a></li>
                               <li><a href="#">{{post.created_at}}</a></li>

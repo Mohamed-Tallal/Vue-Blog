@@ -16,7 +16,7 @@
                 </router-link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About Us</a>
+                 <router-link class="nav-link" to="/post-details/1"> About Us</router-link>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="blog.html">Blog Entries</a>
