@@ -1989,7 +1989,7 @@ __webpack_require__.r(__webpack_exports__);
         this.page++;
       }
 
-      axios.get('http://127.0.0.1:8080/api/post?item=' + this.page).then(function (res) {
+      axios.get('http://127.0.0.1:8000/api/post?item=' + this.page).then(function (res) {
         _this.posts = res.data;
         console.log(_this.posts);
       })["catch"](function (error) {
@@ -2163,7 +2163,7 @@ __webpack_require__.r(__webpack_exports__);
     postDetails: function postDetails(id) {
       var _this = this;
 
-      axios.get('http://127.0.0.1:8080/api/post/' + id).then(function (res) {
+      axios.get('http://127.0.0.1:8000/api/post/' + id).then(function (res) {
         _this.post = res.data.data;
         console.log(_this.post);
       })["catch"](function (err) {

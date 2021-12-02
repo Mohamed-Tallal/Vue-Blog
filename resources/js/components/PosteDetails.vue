@@ -147,7 +147,7 @@ export default {
 
         methods: {
             postDetails(id){
-                axios.get('http://127.0.0.1:8080/api/post/'+id).then(res=>{
+                axios.get('http://127.0.0.1:8000/api/post/'+id).then(res=>{
                     this.post = res.data.data ;
                     console.log(this.post)
                 }).catch(err => {
