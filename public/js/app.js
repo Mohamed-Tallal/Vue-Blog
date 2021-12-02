@@ -1989,7 +1989,7 @@ __webpack_require__.r(__webpack_exports__);
         this.page++;
       }
 
-      axios.get('api/post?item=' + this.page).then(function (res) {
+      axios.get('http://127.0.0.1:8080/api/post?item=' + this.page).then(function (res) {
         _this.posts = res.data;
         console.log(_this.posts);
       })["catch"](function (error) {
@@ -2155,16 +2155,17 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.page = this.$route.params.id;
-    this.postDetails();
+    this.postDetails(this.page);
     console.log(this.page);
+    console.log(this.post);
   },
   methods: {
-    postDetails: function postDetails() {
+    postDetails: function postDetails(id) {
       var _this = this;
 
-      axios.get('api/post/1').then(function (res) {
+      axios.get('http://127.0.0.1:8080/api/post/' + id).then(function (res) {
         _this.post = res.data.data;
-        console.log(res.data);
+        console.log(_this.post);
       })["catch"](function (err) {
         console.log(err.data.data);
       });

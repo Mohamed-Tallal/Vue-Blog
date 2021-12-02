@@ -76,7 +76,7 @@ export default {
                     if(pages !==1){
                         this.page ++
                     }
-                axios.get('api/post?item=' + this.page).then(res => {
+                axios.get('http://127.0.0.1:8080/api/post?item=' + this.page).then(res => {
                     this.posts = res.data
                     console.log(this.posts)
                 }).catch(error => {

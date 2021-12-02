@@ -140,19 +140,21 @@ export default {
         },
         mounted(){
             this.page = this.$route.params.id;
-            this.postDetails()
+            this.postDetails(this.page);
             console.log(this.page)
+            console.log(this.post)
         },
+
         methods: {
-            postDetails(){
-                axios.get('api/post/1').then(res=>{
+            postDetails(id){
+                axios.get('http://127.0.0.1:8080/api/post/'+id).then(res=>{
                     this.post = res.data.data ;
-                    console.log(res.data)
+                    console.log(this.post)
                 }).catch(err => {
                     console.log(err.data.data)
 
                 })
-            }
+            },
         },
 
 }
