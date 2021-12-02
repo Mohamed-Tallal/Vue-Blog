@@ -20,10 +20,16 @@
                             <div class="post-options">
                               <div class="row">
                                 <div class="col-6">
-                                <ul class="post-tags ">
+                                <ul v-if="post.tages.length !== 0"  class="post-tags ">
                                     <li><i class="fa fa-tags" ></i></li>
                                     <li v-for="(tage,index) in post.tages" :key="index">
                                         <a href="#">{{ ' '+ tage.tittle }}<span v-if="index+1 != post.tages.length"> , </span></a>
+                                    </li>
+                                  </ul>
+                                  <ul class="post-tags"  v-else >
+                                    <li><i class="fa fa-tags" ></i></li>
+                                    <li>
+                                        <a href="#">No Tags</a>
                                     </li>
                                   </ul>
                                 </div>

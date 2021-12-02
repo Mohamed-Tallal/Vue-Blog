@@ -17,6 +17,11 @@ class PostRepository {
         return $post ;
     }
 
+    public function find_post_data($id){
+        $post =Post::with('comments','replys','category','user','tags')->find($id) ;
+        return $post ;
+    }
+
 
 
 }

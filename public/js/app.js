@@ -1959,6 +1959,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2125,7 +2131,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      page: '',
+      post: {
+        id: 1,
+        tittle: "",
+        image: " ",
+        desc: "",
+        created_at: " ",
+        user_name: " ",
+        user_id: "",
+        category_name: " ",
+        category_id: "",
+        comments: [],
+        tages: []
+      }
+    };
+  },
+  beforeCreate: function beforeCreate() {
+    alert("beforeCreate");
+  },
+  mounted: function mounted() {
+    this.page = this.$route.params.id;
+    this.postDetails();
+    console.log(this.page);
+  },
+  methods: {
+    postDetails: function postDetails() {
+      var _this = this;
+
+      axios.get('api/post/1').then(function (res) {
+        _this.post = res.data.data;
+        console.log(res.data);
+      })["catch"](function (err) {
+        console.log(err.data.data);
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -38454,28 +38499,34 @@ var render = function () {
                     _c("div", { staticClass: "post-options" }, [
                       _c("div", { staticClass: "row" }, [
                         _c("div", { staticClass: "col-6" }, [
-                          _c(
-                            "ul",
-                            { staticClass: "post-tags " },
-                            [
-                              _vm._m(1, true),
-                              _vm._v(" "),
-                              _vm._l(post.tages, function (tage, index) {
-                                return _c("li", { key: index }, [
-                                  _c("a", { attrs: { href: "#" } }, [
-                                    _vm._v(_vm._s(" " + tage.tittle)),
-                                    index + 1 != post.tages.length
-                                      ? _c("span", [_vm._v(" , ")])
-                                      : _vm._e(),
-                                  ]),
-                                ])
-                              }),
-                            ],
-                            2
-                          ),
+                          post.tages.length !== 0
+                            ? _c(
+                                "ul",
+                                { staticClass: "post-tags " },
+                                [
+                                  _vm._m(1, true),
+                                  _vm._v(" "),
+                                  _vm._l(post.tages, function (tage, index) {
+                                    return _c("li", { key: index }, [
+                                      _c("a", { attrs: { href: "#" } }, [
+                                        _vm._v(_vm._s(" " + tage.tittle)),
+                                        index + 1 != post.tages.length
+                                          ? _c("span", [_vm._v(" , ")])
+                                          : _vm._e(),
+                                      ]),
+                                    ])
+                                  }),
+                                ],
+                                2
+                              )
+                            : _c("ul", { staticClass: "post-tags" }, [
+                                _vm._m(2, true),
+                                _vm._v(" "),
+                                _vm._m(3, true),
+                              ]),
                         ]),
                         _vm._v(" "),
-                        _vm._m(2, true),
+                        _vm._m(4, true),
                       ]),
                     ]),
                   ],
@@ -38529,6 +38580,18 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("li", [_c("i", { staticClass: "fa fa-tags" })])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [_c("i", { staticClass: "fa fa-tags" })])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("No Tags")])])
   },
   function () {
     var _vm = this

@@ -15,6 +15,7 @@ class UserSeeder extends Seeder
         for($u = 1 ;$u<=5; $u++){
             User::create([
                 'name' => 'Mohamed '.$u,
+                'name' => 'image'.$u.'.png',
                 'email' => 'mohamed'.$u.'@gmail.com',
                 'password' => bcrypt(123456789) ,
             ]);

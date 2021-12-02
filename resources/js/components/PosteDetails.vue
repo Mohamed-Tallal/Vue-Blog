@@ -116,6 +116,44 @@
 
 <script>
 export default {
+        data() {
+            return {
+                page: '',
+                post: {
+                    id: 1,
+                    tittle: "",
+                    image: " ",
+                    desc: "",
+                    created_at: " ",
+                    user_name: " ",
+                    user_id: "" ,
+                    category_name: " ",
+                    category_id: "",
+                    comments: [],
+                    tages: []
+                }
+            }
+
+        },
+        beforeCreate(){
+           alert("beforeCreate")
+        },
+        mounted(){
+            this.page = this.$route.params.id;
+            this.postDetails()
+            console.log(this.page)
+        },
+        methods: {
+            postDetails(){
+                axios.get('api/post/1').then(res=>{
+                    this.post = res.data.data ;
+                    console.log(res.data)
+                }).catch(err => {
+                    console.log(err.data.data)
+
+                })
+            }
+        },
 
 }
 </script>

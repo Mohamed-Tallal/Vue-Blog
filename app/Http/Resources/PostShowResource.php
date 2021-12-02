@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PostResource extends JsonResource
+class PostShowResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,17 +17,15 @@ class PostResource extends JsonResource
         return [
             'id' => $this->id,
             'tittle' => $this->tittle ,
-            'image' => url('dashboard_files/assets/images/posts/'.$this->image),
+            'image' => url('dashboard_files/images/'.$this->image),
             'desc' => $this->small_desc ,
             'created_at' => $this->created_at->diffForHumans() ,
             'user_name' => $this->user->name,
             'user_id' => $this->user->id,
             'category_name' => $this->category->tittle,
             'category_id' => $this->category->id,
-            'comments' => $this->comments->count() + $this->replys->count()  ,
+            'comments' =>  CommentResource::collection($this->whenLoaded('comments')),
             'tages' => TagResource::collection($this->whenLoaded('tags')),
         ];
     }
-
-
 }

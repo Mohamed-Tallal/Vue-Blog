@@ -8,6 +8,7 @@ use App\Traits\ShowDatalTrait;
 use App\Repository\PostRepository;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
+use App\Http\Resources\PostShowResource;
 use App\Interfaces\PostRepositoryInterface;
 
 class PostController extends Controller
@@ -25,17 +26,11 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        //        $test = Post::orderBy('id', 'DESC')->select('image')->paginate(1);
-        // return $test;
+
         $count = $this->post->count_posts();
         $post = $this->post->get_post_data($request->item) ;
         $data = PostResource::collection($post) ;
          return $this->SuccessWithData('Paginate 5 Posts data ',$data,$count);
-        //return response()->json($post );
-
-   ;
-
-
     }
 
     /**
@@ -67,7 +62,10 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = $this->post->find_post_data($id);
+        $data = new PostShowResource($post);
+        return $this->SuccessWithData('Paginate 5 Posts data ',$data);
+
     }
 
     /**
@@ -78,7 +76,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = $this->post->find_post_data($id);
+        $data = new PostShowResource($post);
+        return $this->SuccessWithData('Paginate 5 Posts data ',$data);
+
     }
 
     /**
