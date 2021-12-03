@@ -9,7 +9,7 @@
                             <img style="margin-top: 5rem" src="http://127.0.0.1:8000/dashboard_files/assets/images/blog-post01.jpg" alt="">
                           </div>
                           <div class="down-content">
-                            <span>Lifestyle</span>
+                            <span>{{post.category_name}}</span>
                             <router-link  :to="{path:'/post-details/' + post.id ,params: { id:  post.id}}"><h4>{{post.tittle}}</h4>
                             </router-link>
                             <ul class="post-info">

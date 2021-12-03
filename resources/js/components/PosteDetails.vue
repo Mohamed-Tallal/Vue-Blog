@@ -9,22 +9,26 @@
                       <img src="http://127.0.0.1:8000/dashboard_files/assets/images/blog-post-02.jpg" alt="">
                     </div>
                     <div class="down-content">
-                      <span>Lifestyle</span>
-                      <a href="post-details.html"><h4>Aenean pulvinar gravida sem nec</h4></a>
+                      <span>{{post.category_name}}</span>
+                      <a href="post-details.html"><h4>{{post.tittle}}</h4></a>
                       <ul class="post-info">
-                        <li><a href="#">Admin</a></li>
-                        <li><a href="#">May 12, 2020</a></li>
-                        <li><a href="#">10 Comments</a></li>
+                        <li><a href="#">{{post.user_name}}</a></li>
+                        <li><a href="#">{{post.created_at}}</a></li>
+                        <li><a href="#">{{post.comments_count}}</a></li>
                       </ul>
-                      <p>You can browse different tags such as <a rel="nofollow" href="https://templatemo.com/tag/multi-page" target="_parent">multi-page</a>, <a rel="nofollow" href="https://templatemo.com/tag/resume" target="_parent">resume</a>, <a rel="nofollow" href="https://templatemo.com/tag/video" target="_parent">video</a>, etc. to see more CSS templates. Sed hendrerit rutrum arcu, non malesuada nisi. Sed id facilisis turpis. Donec justo elit, dapibus vel ultricies in, molestie sit amet risus. In nunc augue, rhoncus sed libero et, tincidunt tempor nisl. Donec egestas, quam eu rutrum ultrices, sapien ante posuere nisl, ac eleifend eros orci vel ante. Pellentesque vitae eleifend velit. Etiam blandit felis sollicitudin vestibulum feugiat.
-                      <br><br>Donec tincidunt leo nec magna gravida varius. Suspendisse felis orci, egestas ac sodales quis, venenatis et neque. Vivamus facilisis dignissim arcu et blandit. Maecenas finibus dui non pulvinar lacinia. Ut lacinia finibus lorem vel porttitor. Suspendisse et metus nec libero ultrices varius eget in risus. Cras id nibh at erat pulvinar malesuada et non ipsum. Suspendisse id ipsum leo.</p>
+                      <p>{{post.desc}}</p>
                       <div class="post-options">
                         <div class="row">
                           <div class="col-6">
-                            <ul class="post-tags">
+                            <ul class="post-tags" v-if="post.tages.length !== 0">
                               <li><i class="fa fa-tags"></i></li>
-                              <li><a href="#">Best Templates</a>,</li>
-                              <li><a href="#">TemplateMo</a></li>
+                              <li v-for="(tage,index) in post.tages" :key="index"><a href="#">{{' ' + tage.tittle}}</a>
+                              <span v-if="index+1 !=  post.tages.length">,</span>
+                              </li>
+                            </ul>
+                            <ul class="post-tags" v-else>
+                              <li><i class="fa fa-tags"></i></li>
+                              <li>No Tags</li>
                             </ul>
                           </div>
                           <div class="col-6">
@@ -39,47 +43,29 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-12">
+                <div class="col-lg-12" v-if="post.comments.length !== 0">
                   <div class="sidebar-item comments">
                     <div class="sidebar-heading">
-                      <h2>4 comments</h2>
+                      <h2>{{ post.comments.length   }} comments</h2>
                     </div>
                     <div class="content">
-                      <ul>
-                        <li>
+                      <ul v-for="comment in post.comments" :key="comment.id">
+                        <li >
                           <div class="author-thumb">
                             <img src="http://127.0.0.1:8000/dashboard_files/assets/images/comment-author-01.jpg" alt="">
                           </div>
                           <div class="right-content">
-                            <h4>Charles Kate<span>May 16, 2020</span></h4>
-                            <p>Fusce ornare mollis eros. Duis et diam vitae justo fringilla condimentum eu quis leo. Vestibulum id turpis porttitor sapien facilisis scelerisque. Curabitur a nisl eu lacus convallis eleifend posuere id tellus.</p>
+                            <h4>{{comment.user.name}}<span>{{comment.created_at}}</span></h4>
+                            <p>{{comment.tittle}}</p>
                           </div>
                         </li>
-                        <li class="replied">
+                        <li class="replied" v-for="reply in comment.replys" :key="reply.id">
                           <div class="author-thumb">
                             <img src="http://127.0.0.1:8000/dashboard_files/assets/images/comment-author-02.jpg" alt="">
                           </div>
                           <div class="right-content">
-                            <h4>Thirteen Man<span>May 20, 2020</span></h4>
-                            <p>In porta urna sed venenatis sollicitudin. Praesent urna sem, pulvinar vel mattis eget.</p>
-                          </div>
-                        </li>
-                        <li>
-                          <div class="author-thumb">
-                            <img src="http://127.0.0.1:8000/dashboard_files/assets/images/comment-author-03.jpg" alt="">
-                          </div>
-                          <div class="right-content">
-                            <h4>Belisimo Mama<span>May 16, 2020</span></h4>
-                            <p>Nullam nec pharetra nibh. Cras tortor nulla, faucibus id tincidunt in, ultrices eget ligula. Sed vitae suscipit ligula. Vestibulum id turpis volutpat, lobortis turpis ac, molestie nibh.</p>
-                          </div>
-                        </li>
-                        <li class="replied">
-                          <div class="author-thumb">
-                            <img src="http://127.0.0.1:8000/dashboard_files/assets/images/comment-author-02.jpg" alt="">
-                          </div>
-                          <div class="right-content">
-                            <h4>Thirteen Man<span>May 22, 2020</span></h4>
-                            <p>Mauris sit amet justo vulputate, cursus massa congue, vestibulum odio. Aenean elit nunc, gravida in erat sit amet, feugiat viverra leo.</p>
+                            <h4>{{reply.user.name}}<span>{{reply.created_at}}</span></h4>
+                            <p>{{reply.tittle}}</p>
                           </div>
                         </li>
                       </ul>
@@ -94,7 +80,6 @@
                     <div class="content">
                       <form id="comment" action="#" method="post">
                         <div class="row">
-
                           <div class="col-lg-12">
                             <fieldset>
                               <textarea name="message" rows="6" id="message" placeholder="Type your comment" required=""></textarea>
@@ -136,6 +121,7 @@ export default {
                     user_id: "" ,
                     category_name: " ",
                     category_id: "",
+                    comments_count: "",
                     comments: [],
                     tages: []
                 }
