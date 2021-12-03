@@ -2290,6 +2290,166 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/contactUs.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/contactUs.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Loader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Loader.vue */ "./resources/js/components/Loader.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    loader: _Loader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      loader: true,
+      page: '',
+      post: {
+        id: 1,
+        tittle: "",
+        image: " ",
+        desc: "",
+        created_at: " ",
+        user_name: " ",
+        user_id: "",
+        category_name: " ",
+        category_id: "",
+        comments_count: "",
+        comments: [],
+        tages: []
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.page = this.$route.params.id;
+    this.postDetails(this.page);
+    console.log(this.page);
+  },
+  methods: {
+    postDetails: function postDetails(id) {
+      var _this = this;
+
+      this.loader = true;
+      axios.get('http://127.0.0.1:8000/api/post/' + id).then(function (res) {
+        _this.post = res.data.data;
+        console.log(_this.post);
+        _this.loader = false;
+      })["catch"](function (err) {
+        console.log(err.data.data);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -38843,7 +39003,18 @@ var render = function () {
                 _vm._v(" "),
                 _vm._m(2),
                 _vm._v(" "),
-                _vm._m(3),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      { staticClass: "nav-link", attrs: { to: "/contact-us" } },
+                      [_vm._v("Contact Us")]
+                    ),
+                  ],
+                  1
+                ),
               ]),
             ]
           ),
@@ -38894,16 +39065,6 @@ var staticRenderFns = [
         { staticClass: "nav-link", attrs: { href: "post-details.html" } },
         [_vm._v("Post Details")]
       ),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "contact.html" } }, [
-        _vm._v("Contact Us"),
-      ]),
     ])
   },
 ]
@@ -39388,6 +39549,294 @@ var staticRenderFns = [
               ]),
             ]),
           ]),
+        ]),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/contactUs.vue?vue&type=template&id=26378223&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/contactUs.vue?vue&type=template&id=26378223& ***!
+  \************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "col-lg-8 mt-5" },
+    [
+      _vm.loader === true ? _c("loader") : _vm._e(),
+      _vm._v(" "),
+      _c("div", { staticClass: "all-blog-posts" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-lg-12" }, [
+            _c("div", { staticClass: "blog-post" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "down-content" }, [
+                _c("span", [_vm._v(_vm._s(_vm.post.category_name))]),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "post-details.html" } }, [
+                  _c("h4", [_vm._v(_vm._s(_vm.post.tittle))]),
+                ]),
+                _vm._v(" "),
+                _c("ul", { staticClass: "post-info" }, [
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _vm._v(_vm._s(_vm.post.user_name)),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _vm._v(_vm._s(_vm.post.created_at)),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _vm._v(_vm._s(_vm.post.comments_count)),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("p", [_vm._v(_vm._s(_vm.post.desc))]),
+                _vm._v(" "),
+                _c("div", { staticClass: "post-options" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-6" }, [
+                      _vm.post.tages.length !== 0
+                        ? _c(
+                            "ul",
+                            { staticClass: "post-tags" },
+                            [
+                              _vm._m(1),
+                              _vm._v(" "),
+                              _vm._l(_vm.post.tages, function (tage, index) {
+                                return _c("li", { key: index }, [
+                                  _c("a", { attrs: { href: "#" } }, [
+                                    _vm._v(_vm._s(" " + tage.tittle)),
+                                  ]),
+                                  _vm._v(" "),
+                                  index + 1 != _vm.post.tages.length
+                                    ? _c("span", [_vm._v(",")])
+                                    : _vm._e(),
+                                ])
+                              }),
+                            ],
+                            2
+                          )
+                        : _c("ul", { staticClass: "post-tags" }, [
+                            _vm._m(2),
+                            _vm._v(" "),
+                            _c("li", [_vm._v("No Tags")]),
+                          ]),
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(3),
+                  ]),
+                ]),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _vm.post.comments.length !== 0
+            ? _c("div", { staticClass: "col-lg-12" }, [
+                _c("div", { staticClass: "sidebar-item comments" }, [
+                  _c("div", { staticClass: "sidebar-heading" }, [
+                    _c("h2", [
+                      _vm._v(_vm._s(_vm.post.comments.length) + " comments"),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "content" },
+                    _vm._l(_vm.post.comments, function (comment) {
+                      return _c(
+                        "ul",
+                        { key: comment.id },
+                        [
+                          _c("li", [
+                            _vm._m(4, true),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "right-content" }, [
+                              _c("h4", [
+                                _vm._v(_vm._s(comment.user.name)),
+                                _c("span", [
+                                  _vm._v(_vm._s(comment.created_at)),
+                                ]),
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [_vm._v(_vm._s(comment.tittle))]),
+                            ]),
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(comment.replys, function (reply) {
+                            return _c(
+                              "li",
+                              { key: reply.id, staticClass: "replied" },
+                              [
+                                _vm._m(5, true),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "right-content" }, [
+                                  _c("h4", [
+                                    _vm._v(_vm._s(reply.user.name)),
+                                    _c("span", [
+                                      _vm._v(_vm._s(reply.created_at)),
+                                    ]),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("p", [_vm._v(_vm._s(reply.tittle))]),
+                                ]),
+                              ]
+                            )
+                          }),
+                        ],
+                        2
+                      )
+                    }),
+                    0
+                  ),
+                ]),
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm._m(6),
+        ]),
+      ]),
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "blog-thumb" }, [
+      _c("img", {
+        attrs: {
+          src: "http://127.0.0.1:8000/dashboard_files/assets/images/blog-post-02.jpg",
+          alt: "",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [_c("i", { staticClass: "fa fa-tags" })])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [_c("i", { staticClass: "fa fa-tags" })])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-6" }, [
+      _c("ul", { staticClass: "post-share" }, [
+        _c("li", [_c("i", { staticClass: "fa fa-share-alt" })]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Facebook")]),
+          _vm._v(","),
+        ]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v(" Twitter")])]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "author-thumb" }, [
+      _c("img", {
+        attrs: {
+          src: "http://127.0.0.1:8000/dashboard_files/assets/images/comment-author-01.jpg",
+          alt: "",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "author-thumb" }, [
+      _c("img", {
+        attrs: {
+          src: "http://127.0.0.1:8000/dashboard_files/assets/images/comment-author-02.jpg",
+          alt: "",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12" }, [
+      _c("div", { staticClass: "sidebar-item submit-comment" }, [
+        _c("div", { staticClass: "sidebar-heading" }, [
+          _c("h2", [_vm._v("Your comment")]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "content" }, [
+          _c(
+            "form",
+            { attrs: { id: "comment", action: "#", method: "post" } },
+            [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-lg-12" }, [
+                  _c("fieldset", [
+                    _c("textarea", {
+                      attrs: {
+                        name: "message",
+                        rows: "6",
+                        id: "message",
+                        placeholder: "Type your comment",
+                        required: "",
+                      },
+                    }),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-12" }, [
+                  _c("fieldset", [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "main-button",
+                        attrs: { type: "submit", id: "form-submit" },
+                      },
+                      [_vm._v("Submit")]
+                    ),
+                  ]),
+                ]),
+              ]),
+            ]
+          ),
         ]),
       ]),
     ])
@@ -55261,6 +55710,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/contactUs.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/components/contactUs.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _contactUs_vue_vue_type_template_id_26378223___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./contactUs.vue?vue&type=template&id=26378223& */ "./resources/js/components/contactUs.vue?vue&type=template&id=26378223&");
+/* harmony import */ var _contactUs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./contactUs.vue?vue&type=script&lang=js& */ "./resources/js/components/contactUs.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _contactUs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _contactUs_vue_vue_type_template_id_26378223___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _contactUs_vue_vue_type_template_id_26378223___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/contactUs.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/contactUs.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/contactUs.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_contactUs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./contactUs.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/contactUs.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_contactUs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/contactUs.vue?vue&type=template&id=26378223&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/contactUs.vue?vue&type=template&id=26378223& ***!
+  \******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contactUs_vue_vue_type_template_id_26378223___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./contactUs.vue?vue&type=template&id=26378223& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/contactUs.vue?vue&type=template&id=26378223&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contactUs_vue_vue_type_template_id_26378223___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_contactUs_vue_vue_type_template_id_26378223___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/router.js":
 /*!********************************!*\
   !*** ./resources/js/router.js ***!
@@ -55272,7 +55790,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_BlogPost_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/BlogPost.vue */ "./resources/js/components/BlogPost.vue");
 /* harmony import */ var _components_PosteDetails_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/PosteDetails.vue */ "./resources/js/components/PosteDetails.vue");
+/* harmony import */ var _components_contactUs_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/contactUs.vue */ "./resources/js/components/contactUs.vue");
  //import dd from'./components/posteDetails.vue'
+
 
 
 var routes = [{
@@ -55283,6 +55803,10 @@ var routes = [{
   path: '/post-details/:id',
   name: 'posteDetails',
   component: _components_PosteDetails_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+}, {
+  path: '/contact-us',
+  name: 'contactUs',
+  component: _components_contactUs_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
 }];
 /* harmony default export */ __webpack_exports__["default"] = (routes);
 

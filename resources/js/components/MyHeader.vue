@@ -25,7 +25,7 @@
                 <a class="nav-link" href="post-details.html">Post Details</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Us</a>
+                <router-link class="nav-link" to="/contact-us">Contact Us</router-link>
               </li>
             </ul>
           </div>
