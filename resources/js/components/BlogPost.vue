@@ -1,5 +1,6 @@
 <template>
         <div class="col-lg-8">
+            <loader v-if="loader === true"></loader>
             <div class="all-blog-posts">
                 <div class="row" >
                     <div class="col-lg-12" v-for="(post) in posts.data" :key="post.id">
@@ -56,29 +57,32 @@
         </div>
 </template>
 <script>
+import loader from './Loader.vue'
 export default {
+        components: {
+            loader
+        },
         data() {
             return {
                 posts:[],
-                page :1
+                page :1,
+                loader:true,
             }
-        },
-          beforeCreate(){
-           alert("beforeCreate")
         },
         mounted(){
              this.getData();
             console.log(this.posts)
-
         },
         methods: {
             getData(pages =1){
+                this.loader = true
                     if(pages !==1){
                         this.page ++
                     }
                 axios.get('http://127.0.0.1:8000/api/post?item=' + this.page).then(res => {
                     this.posts = res.data
                     console.log(this.posts)
+                    this.loader = false
                 }).catch(error => {
                     console.log(error)
 

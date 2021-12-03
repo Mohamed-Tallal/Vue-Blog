@@ -1,5 +1,6 @@
 <template>
       <div class="col-lg-8 mt-5">
+          <loader v-if="loader === true"></loader>
             <div class="all-blog-posts">
               <div class="row">
                 <div class="col-lg-12">
@@ -115,9 +116,15 @@
 </template>
 
 <script>
+import loader from './Loader.vue'
+
 export default {
+    components:{
+        loader
+    },
         data() {
             return {
+                loader:true,
                 page: '',
                 post: {
                     id: 1,
@@ -135,21 +142,19 @@ export default {
             }
 
         },
-        beforeCreate(){
-           alert("beforeCreate")
-        },
         mounted(){
             this.page = this.$route.params.id;
             this.postDetails(this.page);
             console.log(this.page)
-            console.log(this.post)
         },
 
         methods: {
             postDetails(id){
+                this.loader = true
                 axios.get('http://127.0.0.1:8000/api/post/'+id).then(res=>{
                     this.post = res.data.data ;
                     console.log(this.post)
+                    this.loader = false
                 }).catch(err => {
                     console.log(err.data.data)
 
