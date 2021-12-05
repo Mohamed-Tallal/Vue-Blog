@@ -34,7 +34,7 @@ const router = new VueRouter({
 //import exampleComponent from './components/ExampleComponent.vue'
 import myHeader from './components/MyHeader.vue'
 import myFooter from './components/MyFooter.vue'
-import sliderContent from './components/Slider.vue'
+import sliderContent from './components/Banner.vue'
 import downloadLink from './components/downloadLink.vue'
 
 

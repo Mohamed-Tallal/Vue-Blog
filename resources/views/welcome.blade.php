@@ -25,11 +25,10 @@
 <div id="vueId">
 
             <my-header></my-header>
-
+            <download-link></download-link>
     <!-- Page Content -->
             <slider-content></slider-content>
       <!-- Banner Ends Here -->
-            <download-link></download-link>
             <section class="blog-posts">
                 <div class="container">
                     <router-view></router-view>
