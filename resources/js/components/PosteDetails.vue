@@ -1,6 +1,7 @@
 <template>
-      <div class="col-lg-8 mt-5">
-          <loader v-if="loader === true"></loader>
+    <div class="row">
+    <loader v-if="loader === true"></loader>
+      <div class="col-lg-8">
             <div class="all-blog-posts">
               <div class="row">
                 <div class="col-lg-12">
@@ -14,7 +15,7 @@
                       <ul class="post-info">
                         <li><a href="#">{{post.user_name}}</a></li>
                         <li><a href="#">{{post.created_at}}</a></li>
-                        <li><a href="#">{{post.comments_count}}</a></li>
+                        <li><a href="#">{{post.comments_count+' Comments'}}</a></li>
                       </ul>
                       <p>{{post.desc}}</p>
                       <div class="post-options">
@@ -50,7 +51,7 @@
                     </div>
                     <div class="content">
                       <ul v-for="comment in post.comments" :key="comment.id">
-                        <li >
+                        <li class="pt-3">
                           <div class="author-thumb">
                             <img src="http://127.0.0.1:8000/dashboard_files/assets/images/comment-author-01.jpg" alt="">
                           </div>
@@ -98,14 +99,19 @@
               </div>
             </div>
         </div>
+    <side-par></side-par>
+
+    </div>
 </template>
 
 <script>
 import loader from './Loader.vue'
+import sidePar from './SidePar.vue'
 
 export default {
     components:{
-        loader
+        loader,
+        sidePar
     },
         data() {
             return {

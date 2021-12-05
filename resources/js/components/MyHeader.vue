@@ -1,7 +1,7 @@
 <template>
 
     <!-- Header -->
-    <header >
+    <header class="background-header" >
       <nav class="navbar navbar-expand-lg">
         <div class="container">
            <router-link class="navbar-brand" to="/"><h2>Stand Blog<em>.</em></h2></router-link>
@@ -32,6 +32,5 @@
         </div>
       </nav>
     </header>
-
 </template>
 

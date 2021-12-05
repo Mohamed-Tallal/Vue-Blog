@@ -20,40 +20,28 @@
         <link rel="stylesheet" href="{{ asset('dashboard_files/assets/css/owl.css') }}">
 
     </head>
-    <body style="margin-top: -100px;">
+    <body>
 
-    <!-- ***** Preloader Start ***** -->
-<!-------
+<div id="vueId">
 
-    <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-    ------->
-    <!-- ***** Preloader End ***** -->
-
-
-
-
-        <div id="app">
             <my-header></my-header>
-            <section class="blog-posts ">
+
+    <!-- Page Content -->
+            <slider-content></slider-content>
+      <!-- Banner Ends Here -->
+            <download-link></download-link>
+            <section class="blog-posts">
                 <div class="container">
-                  <div class="row">
                     <router-view></router-view>
-                    <side-par></side-par>
-                  </div>
                 </div>
-              </section>
+            </section>
             <my-footer></my-footer>
-        </div>
-        <script src="{{ asset('js/app.js') }}" defer></script>
+</div>
+
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('dashboard_files/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{ asset('dashboard_files/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Additional Scripts -->
     <script src="{{ asset('dashboard_files/assets/js/custom.js') }}"></script>

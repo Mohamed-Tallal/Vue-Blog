@@ -34,15 +34,17 @@ const router = new VueRouter({
 //import exampleComponent from './components/ExampleComponent.vue'
 import myHeader from './components/MyHeader.vue'
 import myFooter from './components/MyFooter.vue'
-import sidePar from './components/SidePar.vue'
+import sliderContent from './components/Slider.vue'
+import downloadLink from './components/downloadLink.vue'
 
 
 const app = new Vue({
-    el: '#app',
+    el: '#vueId',
     router,
     components:{
         myHeader,
         myFooter,
-        sidePar,
+        sliderContent,
+        downloadLink
     }
 });
