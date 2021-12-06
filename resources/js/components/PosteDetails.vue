@@ -56,7 +56,7 @@
                             <img src="http://127.0.0.1:8000/dashboard_files/assets/images/comment-author-01.jpg" alt="">
                           </div>
                           <div class="right-content">
-                            <h4>{{comment.user.name}}<span>{{comment.created_at}}</span></h4>
+                            <h4>{{comment.user.name}}<span>{{comment.created_at}}</span><span>Reply</span></h4>
                             <p>{{comment.tittle}}</p>
                           </div>
                         </li>

@@ -3,18 +3,22 @@
 namespace App\Http\Controllers\FrontEnd;
 
 use App\Http\Controllers\Controller;
+use App\Repository\CategoryRepository;
+use App\Traits\ShowDatalTrait;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    use ShowDatalTrait;
+   private $cat = "";
+   public function __construct(CategoryRepository $cat)
+    {
+        $this->cat = $cat ;
+    }
     public function index()
     {
-        //
+        $category = $this->cat->get_category_data();
+        return $this->SuccessWithData('Category Data' ,$category );
     }
 
     /**

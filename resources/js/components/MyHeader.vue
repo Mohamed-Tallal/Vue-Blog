@@ -1,7 +1,7 @@
 <template>
 
     <!-- Header -->
-    <header class="background-header" >
+    <header >
       <nav class="navbar navbar-expand-lg">
         <div class="container">
            <router-link class="navbar-brand" to="/"><h2>Stand Blog<em>.</em></h2></router-link>
@@ -10,13 +10,11 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <router-link class="nav-link" to="/">Home
-                  <span class="sr-only">(current)</span>
-                </router-link>
+              <li class="nav-item">
+                <router-link class="nav-link" to="/" active-class="active">Home</router-link>
               </li>
               <li class="nav-item">
-                 <router-link class="nav-link" to="/post-details/1"> About Us</router-link>
+                 <router-link class="nav-link" to="/post-details/1" active-class="active"> About Us</router-link>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="blog.html">Blog Entries</a>
@@ -25,12 +23,13 @@
                 <a class="nav-link" href="post-details.html">Post Details</a>
               </li>
               <li class="nav-item">
-                <router-link class="nav-link" to="/contact-us">Contact Us</router-link>
+                <router-link class="nav-link" to="/contact-us" active-class="active">Contact Us</router-link>
               </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
+
 </template>
 

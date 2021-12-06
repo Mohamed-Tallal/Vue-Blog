@@ -21,3 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('post', 'FrontEnd\PostController');
+Route::get('contact-us' ,'FrontEnd\ContactUsController@contactUs');
+
+Route::get('tag-data' ,'FrontEnd\TagController@index');
+Route::get('category-data' ,'FrontEnd\CategoryController@index');

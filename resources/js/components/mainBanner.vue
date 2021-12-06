@@ -1,6 +1,6 @@
 <template>
     <!-- Banner Starts Here -->
-            <div class="main-banner header-text">
+            <div class="main-banner header-text" v-if="page ==='blogPost' ">
                 <div class="container-fluid">
                 <div class="owl-banner owl-carousel">
                     <div class="item">
@@ -106,6 +106,16 @@
 
 <script>
 export default {
+        data() {
+            return {
+                page:''
+            }
 
+    },
+    mounted() {
+        this.page =this.$route.name;
+        console.log(this.page)
+
+    },
 }
 </script>

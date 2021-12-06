@@ -1,93 +1,44 @@
 <template>
-      <div class="col-lg-8 mt-5">
-          <loader v-if="loader === true"></loader>
-            <div class="all-blog-posts">
+
+    <div class="contact-us">
+    <loader v-if="loader === true" ></loader>
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-12">
+            <div class="down-contact">
               <div class="row">
-                <div class="col-lg-12">
-                  <div class="blog-post">
-                    <div class="blog-thumb">
-                      <img src="http://127.0.0.1:8000/dashboard_files/assets/images/blog-post-02.jpg" alt="">
-                    </div>
-                    <div class="down-content">
-                      <span>{{post.category_name}}</span>
-                      <a href="post-details.html"><h4>{{post.tittle}}</h4></a>
-                      <ul class="post-info">
-                        <li><a href="#">{{post.user_name}}</a></li>
-                        <li><a href="#">{{post.created_at}}</a></li>
-                        <li><a href="#">{{post.comments_count}}</a></li>
-                      </ul>
-                      <p>{{post.desc}}</p>
-                      <div class="post-options">
-                        <div class="row">
-                          <div class="col-6">
-                            <ul class="post-tags" v-if="post.tages.length !== 0">
-                              <li><i class="fa fa-tags"></i></li>
-                              <li v-for="(tage,index) in post.tages" :key="index"><a href="#">{{' ' + tage.tittle}}</a>
-                              <span v-if="index+1 !=  post.tages.length">,</span>
-                              </li>
-                            </ul>
-                            <ul class="post-tags" v-else>
-                              <li><i class="fa fa-tags"></i></li>
-                              <li>No Tags</li>
-                            </ul>
-                          </div>
-                          <div class="col-6">
-                            <ul class="post-share">
-                              <li><i class="fa fa-share-alt"></i></li>
-                              <li><a href="#">Facebook</a>,</li>
-                              <li><a href="#"> Twitter</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-12" v-if="post.comments.length !== 0">
-                  <div class="sidebar-item comments">
+                <div class="col-lg-8">
+                  <div class="sidebar-item contact-form">
                     <div class="sidebar-heading">
-                      <h2>{{ post.comments.length   }} comments</h2>
+                      <h2>Send us a message</h2>
                     </div>
                     <div class="content">
-                      <ul v-for="comment in post.comments" :key="comment.id">
-                        <li >
-                          <div class="author-thumb">
-                            <img src="http://127.0.0.1:8000/dashboard_files/assets/images/comment-author-01.jpg" alt="">
-                          </div>
-                          <div class="right-content">
-                            <h4>{{comment.user.name}}<span>{{comment.created_at}}</span></h4>
-                            <p>{{comment.tittle}}</p>
-                          </div>
-                        </li>
-                        <li class="replied" v-for="reply in comment.replys" :key="reply.id">
-                          <div class="author-thumb">
-                            <img src="http://127.0.0.1:8000/dashboard_files/assets/images/comment-author-02.jpg" alt="">
-                          </div>
-                          <div class="right-content">
-                            <h4>{{reply.user.name}}<span>{{reply.created_at}}</span></h4>
-                            <p>{{reply.tittle}}</p>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="sidebar-item submit-comment">
-                    <div class="sidebar-heading">
-                      <h2>Your comment</h2>
-                    </div>
-                    <div class="content">
-                      <form id="comment" action="#" method="post">
+                      <form id="contact" action="" method="post">
                         <div class="row">
-                          <div class="col-lg-12">
+                          <div class="col-md-6 col-sm-12">
                             <fieldset>
-                              <textarea name="message" rows="6" id="message" placeholder="Type your comment" required=""></textarea>
+                              <input name="name" type="text" id="name" placeholder="Your name" required="">
+                            </fieldset>
+                          </div>
+                          <div class="col-md-6 col-sm-12">
+                            <fieldset>
+                              <input name="email" type="text" id="email" placeholder="Your email" required="">
+                            </fieldset>
+                          </div>
+                          <div class="col-md-12 col-sm-12">
+                            <fieldset>
+                              <input name="subject" type="text" id="subject" placeholder="Subject">
                             </fieldset>
                           </div>
                           <div class="col-lg-12">
                             <fieldset>
-                              <button type="submit" id="form-submit" class="main-button">Submit</button>
+                              <textarea name="message" rows="6" id="message" placeholder="Your Message" required=""></textarea>
+                            </fieldset>
+                          </div>
+                          <div class="col-lg-12">
+                            <fieldset>
+                              <button type="submit" id="form-submit" class="main-button">Send Message</button>
                             </fieldset>
                           </div>
                         </div>
@@ -95,9 +46,44 @@
                     </div>
                   </div>
                 </div>
+                <div class="col-lg-4">
+                  <div class="sidebar-item contact-information">
+                    <div class="sidebar-heading">
+                      <h2>contact information</h2>
+                    </div>
+                    <div class="content">
+                      <ul>
+                        <li>
+                          <h5>{{contact.number}}</h5>
+                          <span>PHONE NUMBER</span>
+                        </li>
+                        <li>
+                          <h5>{{contact.email}}</h5>
+                          <span>EMAIL ADDRESS</span>
+                        </li>
+                        <li>
+                          <h5>{{contact.address}}</h5>
+                          <span>STREET ADDRESS</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
+
+          <div class="col-lg-12">
+            <div id="map">
+              <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="450px" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+          </div>
+
         </div>
+      </div>
+    </div>
+
+
 </template>
 
 <script>
@@ -110,42 +96,32 @@ export default {
         data() {
             return {
                 loader:true,
-                page: '',
-                post: {
-                    id: 1,
-                    tittle: "",
-                    image: " ",
-                    desc: "",
-                    created_at: " ",
-                    user_name: " ",
-                    user_id: "" ,
-                    category_name: " ",
-                    category_id: "",
-                    comments_count: "",
-                    comments: [],
-                    tages: []
+                page:'',
+                contact : {
+                number :"",
+                email  :"",
+                address: "",
+                location: ""
                 }
             }
 
         },
         mounted(){
-            this.page = this.$route.params.id;
-            this.postDetails(this.page);
-            console.log(this.page)
+
+            this.page =this.$route.name;
+            console.log(this.loader)
+            this. getContactData();
         },
-
         methods: {
-            postDetails(id){
-                this.loader = true
-                axios.get('http://127.0.0.1:8000/api/post/'+id).then(res=>{
-                    this.post = res.data.data ;
-                    console.log(this.post)
-                    this.loader = false
-                }).catch(err => {
-                    console.log(err.data.data)
-
+            getContactData(){
+                axios.get('http://127.0.0.1:8000/api/contact-us').then(res=>{
+                    this.contact = res.data.data;
+                    console.log(this.contact);
+                }).catch(error => {
+                    console.log(error)
                 })
-            },
+                 this.loader = false
+            }
         },
 
 }

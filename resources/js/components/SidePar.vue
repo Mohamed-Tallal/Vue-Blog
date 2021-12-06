@@ -1,5 +1,6 @@
 <template>
             <div class="col-lg-4">
+                <Loader v-if="loader === true"></Loader>
                       <div class="sidebar">
                         <div class="row">
                           <div class="col-lg-12">
@@ -38,13 +39,8 @@
                                 <h2>Categories</h2>
                               </div>
                               <div class="content">
-                                <ul>
-                                  <li><a href="#">- Nature Lifestyle</a></li>
-                                  <li><a href="#">- Awesome Layouts</a></li>
-                                  <li><a href="#">- Creative Ideas</a></li>
-                                  <li><a href="#">- Responsive Templates</a></li>
-                                  <li><a href="#">- HTML5 / CSS3 Templates</a></li>
-                                  <li><a href="#">- Creative &amp; Unique</a></li>
+                                <ul v-if="categories.length !== 0">
+                                  <li v-for="cat in categories" :key="cat.id"><a href="#">{{'- '+cat.tittle}}</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -55,14 +51,8 @@
                                 <h2>Tag Clouds</h2>
                               </div>
                               <div class="content">
-                                <ul>
-                                  <li><a href="#">Lifestyle</a></li>
-                                  <li><a href="#">Creative</a></li>
-                                  <li><a href="#">HTML5</a></li>
-                                  <li><a href="#">Inspiration</a></li>
-                                  <li><a href="#">Motivation</a></li>
-                                  <li><a href="#">PSD</a></li>
-                                  <li><a href="#">Responsive</a></li>
+                                <ul v-if="tags.length !== 0">
+                                  <li v-for="tag in tags" :key="tag.id"><a href="#">{{tag.tittle}}</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -73,9 +63,39 @@
 </template>
 
 <script>
+import Loader from './Loader.vue'
     export default {
+        components:{
+            Loader
+        },
+        data() {
+            return {
+                loader:true,
+                tags:[],
+                categories:[],
+            }
+        },
         mounted() {
             console.log('Component mounted.')
-        }
+            this.getTagData()
+            this.getCategoryData()
+            this.loader = false
+        },
+        methods: {
+            getTagData(){
+                axios.get('http://127.0.0.1:8000/api/tag-data').then(res=>{
+                    this.tags = res.data.data
+                }).catch(err => {
+                    console.log(err)
+                })
+            },
+             getCategoryData(){
+                axios.get('http://127.0.0.1:8000/api/category-data').then(res=>{
+                    this.categories = res.data.data
+                }).catch(err => {
+                    console.log(err)
+                })
+            }
+        },
     }
 </script>
