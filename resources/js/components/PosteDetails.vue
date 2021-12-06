@@ -143,7 +143,7 @@ export default {
         methods: {
             postDetails(id){
                 this.loader = true
-                axios.get('http://127.0.0.1:8000/api/post/'+id).then(res=>{
+                axios.get('http://127.0.0.1:8000/api/find-post/'+id).then(res=>{
                     this.post = res.data.data ;
                     console.log(this.post)
                     this.loader = false

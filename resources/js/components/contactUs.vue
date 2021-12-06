@@ -14,35 +14,31 @@
                       <h2>Send us a message</h2>
                     </div>
                     <div class="content">
-                      <form id="contact" action="" method="post">
                         <div class="row">
                           <div class="col-md-6 col-sm-12">
-                            <fieldset>
-                              <input name="name" type="text" id="name" placeholder="Your name" required="">
-                            </fieldset>
+
+                              <input name="name" type="text" :class="['form-control' , errors.name ? 'is-invalid' : '']" v-model="contactModel.name" placeholder="Your name" >
+
                           </div>
                           <div class="col-md-6 col-sm-12">
-                            <fieldset>
-                              <input name="email" type="text" id="email" placeholder="Your email" required="">
-                            </fieldset>
+
+                              <input name="email" type="text" :class="['form-control' , errors.email ? 'is-invalid':'']" v-model="contactModel.email"  placeholder="Your email" >
+
                           </div>
                           <div class="col-md-12 col-sm-12">
-                            <fieldset>
-                              <input name="subject" type="text" id="subject" placeholder="Subject">
-                            </fieldset>
+
+                              <input name="subject" type="text" :class="['form-control' , errors.subject ? 'is-invalid':'']" v-model="contactModel.subject"  placeholder="Subject">
+
                           </div>
                           <div class="col-lg-12">
-                            <fieldset>
-                              <textarea name="message" rows="6" id="message" placeholder="Your Message" required=""></textarea>
-                            </fieldset>
+                              <textarea name="message" rows="6" :class="['form-control' , errors.msg ? 'is-invalid':'']" placeholder="Your Message" v-model="contactModel.msg" ></textarea>
                           </div>
                           <div class="col-lg-12">
-                            <fieldset>
-                              <button type="submit" id="form-submit" class="main-button">Send Message</button>
-                            </fieldset>
+
+                              <button @click="createContact()" id="form-submit" class="main-button">Send Message</button>
+
                           </div>
                         </div>
-                      </form>
                     </div>
                   </div>
                 </div>
@@ -102,7 +98,14 @@ export default {
                 email  :"",
                 address: "",
                 location: ""
-                }
+                },
+                contactModel:{
+                    email  : "",
+                    name : "",
+                    msg : "",
+                    subject : "",
+                },
+                errors:[]
             }
 
         },
@@ -121,6 +124,22 @@ export default {
                     console.log(error)
                 })
                  this.loader = false
+            },
+            createContact(){
+                axios.post('http://127.0.0.1:8000/api/create-post/',this.contactModel).then(res=>{
+                  this.contactModel = {
+                    email  : "",
+                    name : "",
+                    msg : "",
+                    subject : "",
+                };
+                this.errors = [];
+                }).catch((err) => {
+                this.errors = err.response.data.errors;
+                console.log(e)
+                console.log(this.errors)
+                });
+
             }
         },
 

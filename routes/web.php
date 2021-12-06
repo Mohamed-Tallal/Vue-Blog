@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('dashboard/{any}', function () {
+    return view('dashboard');
+})->where('any','.*');
+
 
 Route::get('{any}', function () {
     return view('welcome');

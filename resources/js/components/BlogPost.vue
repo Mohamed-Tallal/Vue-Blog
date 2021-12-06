@@ -84,7 +84,7 @@ export default {
                     if(pages !==1){
                         this.page ++
                     }
-                axios.get('http://127.0.0.1:8000/api/post?item=' + this.page).then(res => {
+                axios.get('http://127.0.0.1:8000/api/post-data?item=' + this.page).then(res => {
                     this.posts = res.data
                     console.log(this.posts)
                     this.loader = false

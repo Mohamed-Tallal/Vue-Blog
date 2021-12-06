@@ -2000,7 +2000,7 @@ __webpack_require__.r(__webpack_exports__);
         this.page++;
       }
 
-      axios.get('http://127.0.0.1:8000/api/post?item=' + this.page).then(function (res) {
+      axios.get('http://127.0.0.1:8000/api/post-data?item=' + this.page).then(function (res) {
         _this.posts = res.data;
         console.log(_this.posts);
         _this.loader = false;
@@ -2199,7 +2199,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.loader = true;
-      axios.get('http://127.0.0.1:8000/api/post/' + id).then(function (res) {
+      axios.get('http://127.0.0.1:8000/api/find-post/' + id).then(function (res) {
         _this.post = res.data.data;
         console.log(_this.post);
         _this.loader = false;
@@ -2452,10 +2452,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2470,7 +2466,14 @@ __webpack_require__.r(__webpack_exports__);
         email: "",
         address: "",
         location: ""
-      }
+      },
+      contactModel: {
+        email: "",
+        name: "",
+        msg: "",
+        subject: ""
+      },
+      errors: []
     };
   },
   mounted: function mounted() {
@@ -2489,6 +2492,23 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error);
       });
       this.loader = false;
+    },
+    createContact: function createContact() {
+      var _this2 = this;
+
+      axios.post('http://127.0.0.1:8000/api/create-post/', this.contactModel).then(function (res) {
+        _this2.contactModel = {
+          email: "",
+          name: "",
+          msg: "",
+          subject: ""
+        };
+        _this2.errors = [];
+      })["catch"](function (err) {
+        _this2.errors = err.response.data.errors;
+        console.log(e);
+        console.log(_this2.errors);
+      });
     }
   }
 });
@@ -39805,7 +39825,171 @@ var render = function () {
           _c("div", { staticClass: "col-lg-12" }, [
             _c("div", { staticClass: "down-contact" }, [
               _c("div", { staticClass: "row" }, [
-                _vm._m(0),
+                _c("div", { staticClass: "col-lg-8" }, [
+                  _c("div", { staticClass: "sidebar-item contact-form" }, [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "content" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-6 col-sm-12" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.contactModel.name,
+                                expression: "contactModel.name",
+                              },
+                            ],
+                            class: [
+                              "form-control",
+                              _vm.errors.name ? "is-invalid" : "",
+                            ],
+                            attrs: {
+                              name: "name",
+                              type: "text",
+                              placeholder: "Your name",
+                            },
+                            domProps: { value: _vm.contactModel.name },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.contactModel,
+                                  "name",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-6 col-sm-12" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.contactModel.email,
+                                expression: "contactModel.email",
+                              },
+                            ],
+                            class: [
+                              "form-control",
+                              _vm.errors.email ? "is-invalid" : "",
+                            ],
+                            attrs: {
+                              name: "email",
+                              type: "text",
+                              placeholder: "Your email",
+                            },
+                            domProps: { value: _vm.contactModel.email },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.contactModel,
+                                  "email",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-12 col-sm-12" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.contactModel.subject,
+                                expression: "contactModel.subject",
+                              },
+                            ],
+                            class: [
+                              "form-control",
+                              _vm.errors.subject ? "is-invalid" : "",
+                            ],
+                            attrs: {
+                              name: "subject",
+                              type: "text",
+                              placeholder: "Subject",
+                            },
+                            domProps: { value: _vm.contactModel.subject },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.contactModel,
+                                  "subject",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-lg-12" }, [
+                          _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.contactModel.msg,
+                                expression: "contactModel.msg",
+                              },
+                            ],
+                            class: [
+                              "form-control",
+                              _vm.errors.msg ? "is-invalid" : "",
+                            ],
+                            attrs: {
+                              name: "message",
+                              rows: "6",
+                              placeholder: "Your Message",
+                            },
+                            domProps: { value: _vm.contactModel.msg },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.contactModel,
+                                  "msg",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-lg-12" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "main-button",
+                              attrs: { id: "form-submit" },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.createContact()
+                                },
+                              },
+                            },
+                            [_vm._v("Send Message")]
+                          ),
+                        ]),
+                      ]),
+                    ]),
+                  ]),
+                ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-lg-4" }, [
                   _c(
@@ -39854,86 +40038,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-8" }, [
-      _c("div", { staticClass: "sidebar-item contact-form" }, [
-        _c("div", { staticClass: "sidebar-heading" }, [
-          _c("h2", [_vm._v("Send us a message")]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "content" }, [
-          _c("form", { attrs: { id: "contact", action: "", method: "post" } }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-md-6 col-sm-12" }, [
-                _c("fieldset", [
-                  _c("input", {
-                    attrs: {
-                      name: "name",
-                      type: "text",
-                      id: "name",
-                      placeholder: "Your name",
-                      required: "",
-                    },
-                  }),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-6 col-sm-12" }, [
-                _c("fieldset", [
-                  _c("input", {
-                    attrs: {
-                      name: "email",
-                      type: "text",
-                      id: "email",
-                      placeholder: "Your email",
-                      required: "",
-                    },
-                  }),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-12 col-sm-12" }, [
-                _c("fieldset", [
-                  _c("input", {
-                    attrs: {
-                      name: "subject",
-                      type: "text",
-                      id: "subject",
-                      placeholder: "Subject",
-                    },
-                  }),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-lg-12" }, [
-                _c("fieldset", [
-                  _c("textarea", {
-                    attrs: {
-                      name: "message",
-                      rows: "6",
-                      id: "message",
-                      placeholder: "Your Message",
-                      required: "",
-                    },
-                  }),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-lg-12" }, [
-                _c("fieldset", [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "main-button",
-                      attrs: { type: "submit", id: "form-submit" },
-                    },
-                    [_vm._v("Send Message")]
-                  ),
-                ]),
-              ]),
-            ]),
-          ]),
-        ]),
-      ]),
+    return _c("div", { staticClass: "sidebar-heading" }, [
+      _c("h2", [_vm._v("Send us a message")]),
     ])
   },
   function () {

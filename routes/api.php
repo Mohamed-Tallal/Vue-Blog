@@ -20,8 +20,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('post', 'FrontEnd\PostController');
-Route::get('contact-us' ,'FrontEnd\ContactUsController@contactUs');
+Route::prefix('admin')->group(function () {
+    Route::resource('post', 'FrontEnd\PostController');
 
+});
+
+Route::get('contact-us' ,'FrontEnd\ContactUsController@contactUs');
 Route::get('tag-data' ,'FrontEnd\TagController@index');
 Route::get('category-data' ,'FrontEnd\CategoryController@index');
+Route::get('post-data' ,'FrontEnd\PostController@index');
+Route::get('find-post/{id}' ,'FrontEnd\PostController@show');
+Route::post('create-post' ,'FrontEnd\ContactUsController@create');
