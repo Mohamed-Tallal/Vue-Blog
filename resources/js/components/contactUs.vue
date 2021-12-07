@@ -117,6 +117,10 @@ export default {
         },
         methods: {
             getContactData(){
+                Toast.fire({
+                icon: 'success',
+                title: 'Message sent successfully .'
+                })
                 axios.get('http://127.0.0.1:8000/api/contact-us').then(res=>{
                     this.contact = res.data.data;
                     console.log(this.contact);
@@ -134,6 +138,10 @@ export default {
                     subject : "",
                 };
                 this.errors = [];
+                Toast.fire({
+                icon: 'success',
+                title: res.data.message
+                })
                 }).catch((err) => {
                 this.errors = err.response.data.errors;
                 console.log(e)

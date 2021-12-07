@@ -24,7 +24,7 @@ class ContactUsController extends Controller
 
     public function create(ContactRequest $request){
         $contact = $this->contact->create_contact_data($request->all());
-        return $this->Succes('Thanks . <br> soon , we will contact with you  .' );
+        return $this->Succes('Message sent successfully . <br> Soon , we will contact with you  .' );
 
     }
     private function rules(){

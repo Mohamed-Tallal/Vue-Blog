@@ -36,6 +36,26 @@ import myHeader from './components/MyHeader.vue'
 import myFooter from './components/MyFooter.vue'
 import mainBanner from './components/mainBanner.vue'
 import bannerContent from './components/bannerContent.vue'
+// ES6 Modules or TypeScript
+import Swal from 'sweetalert2'
+
+// CommonJS
+
+window.Swal = Swal;
+
+
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'bottom-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+  window.Toast = Toast
 
 
 const app = new Vue({

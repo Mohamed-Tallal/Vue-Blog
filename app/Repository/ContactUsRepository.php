@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Mail;
 class ContactUsRepository {
 
     public function get_contact_data(){
-        $contact = DB::table('emails')->select('number','email','address','location')->orderBy('id', 'desc')->first();
+        $contact = DB::table('contact_us')->select('number','email','address','location')->orderBy('id', 'desc')->first();
         return $contact ;
     }
     public function create_contact_data($data){
