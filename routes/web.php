@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('{any}', function () {
+    if(request()->segments(1) != null && request()->segments(1)[0]== 'admin'){
+        return view('dashboard');
+    }else{
+        return view('welcome');
 
-    return view('welcome');
+    }
 })->where('any','.*');

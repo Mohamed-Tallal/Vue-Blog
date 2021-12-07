@@ -13,7 +13,7 @@
     <body>
 
     <div id="vueId">
-        ddddddddddddddd
+        <my-header></my-header>
     </div>
 
     <script src="{{ asset('js/app.js') }}" defer></script>
