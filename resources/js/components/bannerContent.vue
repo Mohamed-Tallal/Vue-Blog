@@ -17,6 +17,16 @@
 
 <script>
 export default {
-
+    data() {
+        return {
+            show:false
+        }
+    },
+watch:{
+    $route (to, from){
+        this.show = false;
+        console.log('Hello world'+this.show)
+    }
+}
 }
 </script>

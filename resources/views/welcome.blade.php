@@ -26,14 +26,7 @@
 
             <my-header></my-header>
         <!-- Page Content -->
-            <main-banner></main-banner>
-        <!-- Banner Ends Here -->
-            <banner-content></banner-content>
-            <section class="blog-posts">
-                <div class="container">
                     <router-view></router-view>
-                </div>
-            </section>
             <my-footer></my-footer>
 </div>
 
