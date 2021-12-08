@@ -26,7 +26,9 @@
 
             <my-header></my-header>
         <!-- Page Content -->
+            <main-banner></main-banner>
                     <router-view></router-view>
+
             <my-footer></my-footer>
 </div>
 

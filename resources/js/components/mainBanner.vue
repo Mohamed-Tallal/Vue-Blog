@@ -1,6 +1,6 @@
 <template>
     <!-- Banner Starts Here -->
-            <div class="main-banner header-text" v-if="page ==='blogPost' ">
+            <div class="main-banner header-text">
                 <div class="container-fluid">
                 <div class="owl-banner owl-carousel">
                     <div class="item">
@@ -113,8 +113,8 @@ export default {
 
     },
     mounted() {
-        this.page =this.$route.name;
-        console.log(this.page)
+    //    this.page =this.$route.name;
+    //    console.log(this.page)
 
     },
 }

@@ -2014,6 +2014,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -2104,6 +2106,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Loader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Loader.vue */ "./resources/js/components/Loader.vue");
 /* harmony import */ var _SidePar_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SidePar.vue */ "./resources/js/components/SidePar.vue");
 /* harmony import */ var _bannerContent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./bannerContent.vue */ "./resources/js/components/bannerContent.vue");
+/* harmony import */ var _mainBanner_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./mainBanner.vue */ "./resources/js/components/mainBanner.vue");
 //
 //
 //
@@ -2219,6 +2222,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+
 
 
 
@@ -2226,7 +2234,8 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     loader: _Loader_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     sidePar: _SidePar_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    bannerContent: _bannerContent_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    bannerContent: _bannerContent_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    mainBanner: _mainBanner_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
@@ -2440,6 +2449,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Loader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Loader.vue */ "./resources/js/components/Loader.vue");
 /* harmony import */ var _bannerContent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bannerContent.vue */ "./resources/js/components/bannerContent.vue");
+/* harmony import */ var _mainBanner_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mainBanner.vue */ "./resources/js/components/mainBanner.vue");
 //
 //
 //
@@ -2530,12 +2540,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     loader: _Loader_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    bannerContent: _bannerContent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    bannerContent: _bannerContent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    mainBanner: _mainBanner_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -2720,9 +2735,8 @@ __webpack_require__.r(__webpack_exports__);
       page: ''
     };
   },
-  mounted: function mounted() {
-    this.page = this.$route.name;
-    console.log(this.page);
+  mounted: function mounted() {//    this.page =this.$route.name;
+    //    console.log(this.page)
   }
 });
 
@@ -42178,8 +42192,6 @@ var render = function () {
     [
       _vm.loader === true ? _c("loader") : _vm._e(),
       _vm._v(" "),
-      _c("main-banner"),
-      _vm._v(" "),
       _c("banner-content"),
       _vm._v(" "),
       _c("section", { staticClass: "blog-posts" }, [
@@ -43571,221 +43583,221 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.page === "blogPost"
-    ? _c("div", { staticClass: "main-banner header-text" }, [_vm._m(0)])
-    : _vm._e()
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container-fluid" }, [
-      _c("div", { staticClass: "owl-banner owl-carousel" }, [
-        _c("div", { staticClass: "item" }, [
-          _c("img", {
-            attrs: {
-              src: "http://127.0.0.1:8000/dashboard_files/assets/images/banner-item-01.jpg",
-              alt: "",
-            },
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "item-content" }, [
-            _c("div", { staticClass: "main-content" }, [
-              _c("div", { staticClass: "meta-category" }, [
-                _c("span", [_vm._v("Fashion")]),
-              ]),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "post-details.html" } }, [
-                _c("h4", [_vm._v("Morbi dapibus condimentum")]),
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "post-info" }, [
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Admin")]),
+    return _c("div", { staticClass: "main-banner header-text" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "owl-banner owl-carousel" }, [
+          _c("div", { staticClass: "item" }, [
+            _c("img", {
+              attrs: {
+                src: "http://127.0.0.1:8000/dashboard_files/assets/images/banner-item-01.jpg",
+                alt: "",
+              },
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "item-content" }, [
+              _c("div", { staticClass: "main-content" }, [
+                _c("div", { staticClass: "meta-category" }, [
+                  _c("span", [_vm._v("Fashion")]),
                 ]),
                 _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("May 12, 2020")]),
+                _c("a", { attrs: { href: "post-details.html" } }, [
+                  _c("h4", [_vm._v("Morbi dapibus condimentum")]),
                 ]),
                 _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("12 Comments")]),
+                _c("ul", { staticClass: "post-info" }, [
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [_vm._v("Admin")]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [_vm._v("May 12, 2020")]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [_vm._v("12 Comments")]),
+                  ]),
                 ]),
               ]),
             ]),
           ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "item" }, [
-          _c("img", {
-            attrs: {
-              src: "http://127.0.0.1:8000/dashboard_files/assets/images/banner-item-02.jpg",
-              alt: "",
-            },
-          }),
           _vm._v(" "),
-          _c("div", { staticClass: "item-content" }, [
-            _c("div", { staticClass: "main-content" }, [
-              _c("div", { staticClass: "meta-category" }, [
-                _c("span", [_vm._v("Nature")]),
-              ]),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "post-details.html" } }, [
-                _c("h4", [_vm._v("Donec porttitor augue at velit")]),
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "post-info" }, [
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Admin")]),
+          _c("div", { staticClass: "item" }, [
+            _c("img", {
+              attrs: {
+                src: "http://127.0.0.1:8000/dashboard_files/assets/images/banner-item-02.jpg",
+                alt: "",
+              },
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "item-content" }, [
+              _c("div", { staticClass: "main-content" }, [
+                _c("div", { staticClass: "meta-category" }, [
+                  _c("span", [_vm._v("Nature")]),
                 ]),
                 _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("May 14, 2020")]),
+                _c("a", { attrs: { href: "post-details.html" } }, [
+                  _c("h4", [_vm._v("Donec porttitor augue at velit")]),
                 ]),
                 _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("24 Comments")]),
+                _c("ul", { staticClass: "post-info" }, [
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [_vm._v("Admin")]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [_vm._v("May 14, 2020")]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [_vm._v("24 Comments")]),
+                  ]),
                 ]),
               ]),
             ]),
           ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "item" }, [
-          _c("img", {
-            attrs: {
-              src: "http://127.0.0.1:8000/dashboard_files/assets/images/banner-item-03.jpg",
-              alt: "",
-            },
-          }),
           _vm._v(" "),
-          _c("div", { staticClass: "item-content" }, [
-            _c("div", { staticClass: "main-content" }, [
-              _c("div", { staticClass: "meta-category" }, [
-                _c("span", [_vm._v("Lifestyle")]),
-              ]),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "post-details.html" } }, [
-                _c("h4", [_vm._v("Best HTML Templates on TemplateMo")]),
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "post-info" }, [
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Admin")]),
+          _c("div", { staticClass: "item" }, [
+            _c("img", {
+              attrs: {
+                src: "http://127.0.0.1:8000/dashboard_files/assets/images/banner-item-03.jpg",
+                alt: "",
+              },
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "item-content" }, [
+              _c("div", { staticClass: "main-content" }, [
+                _c("div", { staticClass: "meta-category" }, [
+                  _c("span", [_vm._v("Lifestyle")]),
                 ]),
                 _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("May 16, 2020")]),
+                _c("a", { attrs: { href: "post-details.html" } }, [
+                  _c("h4", [_vm._v("Best HTML Templates on TemplateMo")]),
                 ]),
                 _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("36 Comments")]),
+                _c("ul", { staticClass: "post-info" }, [
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [_vm._v("Admin")]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [_vm._v("May 16, 2020")]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [_vm._v("36 Comments")]),
+                  ]),
                 ]),
               ]),
             ]),
           ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "item" }, [
-          _c("img", {
-            attrs: {
-              src: "http://127.0.0.1:8000/dashboard_files/assets/images/banner-item-04.jpg",
-              alt: "",
-            },
-          }),
           _vm._v(" "),
-          _c("div", { staticClass: "item-content" }, [
-            _c("div", { staticClass: "main-content" }, [
-              _c("div", { staticClass: "meta-category" }, [
-                _c("span", [_vm._v("Fashion")]),
-              ]),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "post-details.html" } }, [
-                _c("h4", [_vm._v("Responsive and Mobile Ready Layouts")]),
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "post-info" }, [
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Admin")]),
+          _c("div", { staticClass: "item" }, [
+            _c("img", {
+              attrs: {
+                src: "http://127.0.0.1:8000/dashboard_files/assets/images/banner-item-04.jpg",
+                alt: "",
+              },
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "item-content" }, [
+              _c("div", { staticClass: "main-content" }, [
+                _c("div", { staticClass: "meta-category" }, [
+                  _c("span", [_vm._v("Fashion")]),
                 ]),
                 _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("May 18, 2020")]),
+                _c("a", { attrs: { href: "post-details.html" } }, [
+                  _c("h4", [_vm._v("Responsive and Mobile Ready Layouts")]),
                 ]),
                 _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("48 Comments")]),
+                _c("ul", { staticClass: "post-info" }, [
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [_vm._v("Admin")]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [_vm._v("May 18, 2020")]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [_vm._v("48 Comments")]),
+                  ]),
                 ]),
               ]),
             ]),
           ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "item" }, [
-          _c("img", {
-            attrs: {
-              src: "http://127.0.0.1:8000/dashboard_files/assets/images/banner-item-05.jpg",
-              alt: "",
-            },
-          }),
           _vm._v(" "),
-          _c("div", { staticClass: "item-content" }, [
-            _c("div", { staticClass: "main-content" }, [
-              _c("div", { staticClass: "meta-category" }, [
-                _c("span", [_vm._v("Nature")]),
-              ]),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "post-details.html" } }, [
-                _c("h4", [_vm._v("Cras congue sed augue id ullamcorper")]),
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "post-info" }, [
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Admin")]),
+          _c("div", { staticClass: "item" }, [
+            _c("img", {
+              attrs: {
+                src: "http://127.0.0.1:8000/dashboard_files/assets/images/banner-item-05.jpg",
+                alt: "",
+              },
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "item-content" }, [
+              _c("div", { staticClass: "main-content" }, [
+                _c("div", { staticClass: "meta-category" }, [
+                  _c("span", [_vm._v("Nature")]),
                 ]),
                 _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("May 24, 2020")]),
+                _c("a", { attrs: { href: "post-details.html" } }, [
+                  _c("h4", [_vm._v("Cras congue sed augue id ullamcorper")]),
                 ]),
                 _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("64 Comments")]),
+                _c("ul", { staticClass: "post-info" }, [
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [_vm._v("Admin")]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [_vm._v("May 24, 2020")]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [_vm._v("64 Comments")]),
+                  ]),
                 ]),
               ]),
             ]),
           ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "item" }, [
-          _c("img", {
-            attrs: {
-              src: "http://127.0.0.1:8000/dashboard_files/assets/images/banner-item-06.jpg",
-              alt: "",
-            },
-          }),
           _vm._v(" "),
-          _c("div", { staticClass: "item-content" }, [
-            _c("div", { staticClass: "main-content" }, [
-              _c("div", { staticClass: "meta-category" }, [
-                _c("span", [_vm._v("Lifestyle")]),
-              ]),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "post-details.html" } }, [
-                _c("h4", [_vm._v("Suspendisse nec aliquet ligula")]),
-              ]),
-              _vm._v(" "),
-              _c("ul", { staticClass: "post-info" }, [
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Admin")]),
+          _c("div", { staticClass: "item" }, [
+            _c("img", {
+              attrs: {
+                src: "http://127.0.0.1:8000/dashboard_files/assets/images/banner-item-06.jpg",
+                alt: "",
+              },
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "item-content" }, [
+              _c("div", { staticClass: "main-content" }, [
+                _c("div", { staticClass: "meta-category" }, [
+                  _c("span", [_vm._v("Lifestyle")]),
                 ]),
                 _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("May 26, 2020")]),
+                _c("a", { attrs: { href: "post-details.html" } }, [
+                  _c("h4", [_vm._v("Suspendisse nec aliquet ligula")]),
                 ]),
                 _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("72 Comments")]),
+                _c("ul", { staticClass: "post-info" }, [
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [_vm._v("Admin")]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [_vm._v("May 26, 2020")]),
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#" } }, [_vm._v("72 Comments")]),
+                  ]),
                 ]),
               ]),
             ]),

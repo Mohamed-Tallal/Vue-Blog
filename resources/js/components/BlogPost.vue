@@ -2,7 +2,9 @@
 <div>
     <loader v-if="loader === true"></loader>
 
+    <!--------
     <main-banner></main-banner>
+    ---------->
             <!-- Banner Ends Here -->
     <banner-content></banner-content>
     <section class="blog-posts">

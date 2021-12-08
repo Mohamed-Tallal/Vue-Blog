@@ -1,6 +1,10 @@
 <template>
 <div>
     <loader v-if="loader === true"></loader>
+    <!--------
+    <main-banner></main-banner>
+    ---------->
+
     <banner-content></banner-content>
 
     <section class="blog-posts grid-system">
@@ -117,12 +121,14 @@
 import loader from './Loader.vue'
 import sidePar from './SidePar.vue'
 import bannerContent from './bannerContent.vue'
+import mainBanner from './mainBanner.vue'
 
 export default {
     components:{
         loader,
         sidePar,
-        bannerContent
+        bannerContent,
+        mainBanner
     },
         data() {
             return {
