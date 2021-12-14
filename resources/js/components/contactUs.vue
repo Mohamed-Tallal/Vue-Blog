@@ -4,7 +4,7 @@
     <!--------
     <main-banner></main-banner>
     ---------->
-        <banner-content></banner-content>
+        <banner-content :title="title" :desc="desc"></banner-content>
      <section class="contact-us">
         <div class="contact-us">
         <loader v-if="loader === true" ></loader>
@@ -94,23 +94,23 @@
 <script>
 import loader from './Loader.vue'
 import bannerContent from './bannerContent.vue'
-import mainBanner from './mainBanner.vue'
 
 export default {
     components:{
         loader,
         bannerContent,
-        mainBanner
     },
         data() {
             return {
                 loader:true,
                 page:'',
+                title:"Contact Us Page ",
+                desc:"LET’S STAY IN TOUCH! ",
                 contact : {
                 number :"",
                 email  :"",
                 address: "",
-                location: ""
+                location: "",
                 },
                 contactModel:{
                     email  : "",

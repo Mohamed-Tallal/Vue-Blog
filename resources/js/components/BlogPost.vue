@@ -1,12 +1,12 @@
 <template>
 <div>
     <loader v-if="loader === true"></loader>
-
+    <main-banner></main-banner>
     <!--------
     <main-banner></main-banner>
     ---------->
             <!-- Banner Ends Here -->
-    <banner-content></banner-content>
+    <banner-content :title="title" :desc="desc"></banner-content>
     <section class="blog-posts">
           <div class="container">
             <div class="row">
@@ -90,6 +90,8 @@ export default {
                 posts:[],
                 page :1,
                 loader:true,
+                title:"Home Page",
+                desc:"LET’S STAY IN TOUCH!"
             }
         },
         mounted(){

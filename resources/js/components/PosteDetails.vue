@@ -4,9 +4,8 @@
     <!--------
     <main-banner></main-banner>
     ---------->
-
-    <banner-content></banner-content>
-
+    <mainBanner></mainBanner>
+    <banner-content :title="title" :desc="desc"></banner-content>
     <section class="blog-posts grid-system">
           <div class="container">
                 <div class="row">
@@ -20,13 +19,13 @@
                                 </div>
                                 <div class="down-content">
                                 <span>{{post.category_name}}</span>
-                                <a href="post-details.html"><h4>{{post.tittle}}</h4></a>
+                                <a href=""><h4>{{post.tittle}}</h4></a>
                                 <ul class="post-info">
                                     <li><a href="#">{{post.user_name}}</a></li>
                                     <li><a href="#">{{post.created_at}}</a></li>
                                     <li><a href="#">{{post.comments_count+' Comments'}}</a></li>
                                 </ul>
-                                <p>{{post.desc}}</p>
+                                <p v-html="post.desc"></p>
                                 <div class="post-options">
                                     <div class="row">
                                     <div class="col-6">
@@ -134,6 +133,8 @@ export default {
             return {
                 loader:true,
                 page: '',
+                title:"Post Details Page ",
+                desc:"LET’S STAY IN TOUCH! ",
                 post: {
                     id: 1,
                     tittle: "",

@@ -1,6 +1,6 @@
 <template>
     <!-- Banner Starts Here -->
-            <div class="main-banner header-text">
+    <div class="main-banner header-text">
                 <div class="container-fluid">
                 <div class="owl-banner owl-carousel">
                     <div class="item">
@@ -101,21 +101,5 @@
                     </div>
                 </div>
                 </div>
-            </div>
+    </div>
 </template>
-
-<script>
-export default {
-        data() {
-            return {
-                page:''
-            }
-
-    },
-    mounted() {
-    //    this.page =this.$route.name;
-    //    console.log(this.page)
-
-    },
-}
-</script>

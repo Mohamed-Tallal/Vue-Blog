@@ -14,17 +14,6 @@
 window.Vue = require('vue');
 Vue.component('pagination', require('laravel-vue-pagination'));
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
 import routes from './router'
 const router = new VueRouter({
     mode:'history',
@@ -34,7 +23,6 @@ const router = new VueRouter({
 //import exampleComponent from './components/ExampleComponent.vue'
 import myHeader from './components/MyHeader.vue'
 import myFooter from './components/MyFooter.vue'
-import mainBanner from './components/mainBanner.vue'
 import bannerContent from './components/bannerContent.vue'
 // ES6 Modules or TypeScript
 import Swal from 'sweetalert2'
@@ -65,6 +53,5 @@ const app = new Vue({
         myHeader,
         myFooter,
         bannerContent,
-        mainBanner
     }
 });

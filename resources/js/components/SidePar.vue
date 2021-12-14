@@ -5,9 +5,9 @@
                         <div class="row">
                           <div class="col-lg-12">
                             <div class="sidebar-item search">
-                              <form id="search_form" name="gs" method="GET" action="#">
+                              <div id="search_form" name="gs" action="#">
                                 <input type="text" name="q" class="searchText" placeholder="type to search..." autocomplete="on">
-                              </form>
+                              </div>
                             </div>
                           </div>
                           <div class="col-lg-12">
@@ -40,7 +40,9 @@
                               </div>
                               <div class="content">
                                 <ul v-if="categories.length !== 0">
-                                  <li v-for="cat in categories" :key="cat.id"><a href="#">{{'- '+cat.tittle}}</a></li>
+                                  <li v-for="cat in categories" :key="cat.id">
+                                      <a href="/?cat=1">{{ '- '+cat.tittle   }}</a>
+                                    </li>
                                 </ul>
                               </div>
                             </div>
@@ -52,7 +54,7 @@
                               </div>
                               <div class="content">
                                 <ul v-if="tags.length !== 0">
-                                  <li v-for="tag in tags" :key="tag.id"><a href="#">{{tag.tittle}}</a></li>
+                                  <li v-for="tag in tags" :key="tag.id"><a href="/?tage=tag.id">{{tag.tittle}}</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -79,22 +81,26 @@ import Loader from './Loader.vue'
             console.log('Component mounted.')
             this.getTagData()
             this.getCategoryData()
-            this.loader = false
+            console.log(this.$route.query)
         },
         methods: {
             getTagData(){
+            this.loader = true
                 axios.get('http://127.0.0.1:8000/api/tag-data').then(res=>{
                     this.tags = res.data.data
                 }).catch(err => {
                     console.log(err)
                 })
+            this.loader = false
             },
              getCategoryData(){
+            this.loader = true
                 axios.get('http://127.0.0.1:8000/api/category-data').then(res=>{
                     this.categories = res.data.data
                 }).catch(err => {
                     console.log(err)
                 })
+            this.loader = false
             }
         },
     }

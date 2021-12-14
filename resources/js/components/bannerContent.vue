@@ -5,8 +5,8 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="text-content">
-                <h4>contact us</h4>
-                <h2>let’s stay in touch!</h2>
+                <h4>{{title}}</h4>
+                <h2>{{desc}}</h2>
               </div>
             </div>
           </div>
@@ -17,16 +17,21 @@
 
 <script>
 export default {
+    props:["title","desc"],
     data() {
         return {
             show:false
         }
     },
-watch:{
+/**
+ *
+ * watch:{
     $route (to, from){
         this.show = false;
         console.log('Hello world'+this.show)
+        }
     }
-}
+ */
+
 }
 </script>
