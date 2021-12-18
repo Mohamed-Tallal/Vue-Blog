@@ -4,7 +4,7 @@
     <!--------
     <main-banner></main-banner>
     ---------->
-    <mainBanner></mainBanner>
+
     <banner-content :title="title" :desc="desc"></banner-content>
     <section class="blog-posts grid-system">
           <div class="container">
@@ -120,14 +120,14 @@
 import loader from './Loader.vue'
 import sidePar from './SidePar.vue'
 import bannerContent from './bannerContent.vue'
-import mainBanner from './mainBanner.vue'
+//import mainBanner from './mainBanner.vue'
 
 export default {
     components:{
         loader,
         sidePar,
         bannerContent,
-        mainBanner
+//        mainBanner
     },
         data() {
             return {

@@ -1,7 +1,6 @@
 <template>
 <div>
     <loader v-if="loader === true"></loader>
-    <main-banner></main-banner>
     <!--------
     <main-banner></main-banner>
     ---------->
@@ -76,14 +75,14 @@
 import loader from './Loader.vue'
 import sidePar from './SidePar.vue'
 import bannerContent from './bannerContent.vue'
-import mainBanner from './mainBanner.vue'
+//import mainBanner from './mainBanner.vue'
 
 export default {
         components: {
             loader,
             sidePar,
             bannerContent,
-            mainBanner
+      //      mainBanner
         },
         data() {
             return {
