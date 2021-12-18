@@ -14,15 +14,6 @@
                 <router-link class="nav-link" to="/" active-class="active">Home</router-link>
               </li>
               <li class="nav-item">
-                 <router-link class="nav-link" to="/post-details/1" active-class="active"> About Us</router-link>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="blog.html">Blog Entries</a>
-              </li>
-              <li class="nav-item">
-                <router-link class="nav-link" to="/admin/login">Post Details</router-link>
-              </li>
-              <li class="nav-item">
                 <router-link class="nav-link" to="/contact-us" active-class="active">Contact Us</router-link>
               </li>
             </ul>

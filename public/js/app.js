@@ -42479,43 +42479,6 @@ var render = function () {
                       "router-link",
                       {
                         staticClass: "nav-link",
-                        attrs: {
-                          to: "/post-details/1",
-                          "active-class": "active",
-                        },
-                      },
-                      [_vm._v(" About Us")]
-                    ),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm._m(1),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link",
-                        attrs: { to: "/admin/login" },
-                      },
-                      [_vm._v("Post Details")]
-                    ),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "nav-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "nav-link",
                         attrs: { to: "/contact-us", "active-class": "active" },
                       },
                       [_vm._v("Contact Us")]
@@ -42552,16 +42515,6 @@ var staticRenderFns = [
       },
       [_c("span", { staticClass: "navbar-toggler-icon" })]
     )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c("a", { staticClass: "nav-link", attrs: { href: "blog.html" } }, [
-        _vm._v("Blog Entries"),
-      ]),
-    ])
   },
 ]
 render._withStripped = true
