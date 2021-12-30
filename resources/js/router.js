@@ -3,8 +3,8 @@ import blogPost from './components/BlogPost.vue'
 //import dd from'./components/posteDetails.vue'
 import posteDetails from './components/PosteDetails.vue'
 import contactUs from './components/contactUs.vue'
-import adminLogin from './components/Admin/adminLogin.vue'
-
+import userLogin from './components/Login.vue'
+import userRegister from './components/Register.vue'
 const routes = [
     {
          path: '/',
@@ -22,9 +22,14 @@ const routes = [
         component: contactUs,
     },
     {
-        path: '/admin/login',
-        name : 'adminLogin',
-        component: adminLogin,
+        path: '/login',
+        name : 'userLogin',
+        component: userLogin,
+    },
+    {
+        path: '/register',
+        name : 'userRegister',
+        component: userRegister,
     },
   ]
 

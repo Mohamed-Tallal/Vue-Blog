@@ -13,6 +13,7 @@
         <!-- Bootstrap core CSS -->
         <link href="{{ asset('dashboard_files/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
         <!-- Additional CSS Files -->
         <link rel="stylesheet" href="{{ asset('dashboard_files/assets/css/fontawesome.css') }}">
@@ -26,9 +27,7 @@
 
             <my-header></my-header>
         <!-- Page Content -->
-            <router-view></router-view>
 
-            <my-footer></my-footer>
 </div>
 
     <script src="{{ asset('js/app.js') }}" defer></script>

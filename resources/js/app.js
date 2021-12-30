@@ -7,7 +7,14 @@
 
  import Vue from 'vue'
  import VueRouter from 'vue-router'
-
+ import Vuex from 'vuex'
+ import store from './store/store'
+ //import exampleComponent from './components/ExampleComponent.vue'
+import myHeader from './components/MyHeader.vue'
+import myFooter from './components/MyFooter.vue'
+import bannerContent from './components/bannerContent.vue'
+// ES6 Modules or TypeScript
+import Swal from 'sweetalert2'
  Vue.use(VueRouter)
 
 
@@ -20,12 +27,7 @@ const router = new VueRouter({
     routes
   })
 
-//import exampleComponent from './components/ExampleComponent.vue'
-import myHeader from './components/MyHeader.vue'
-import myFooter from './components/MyFooter.vue'
-import bannerContent from './components/bannerContent.vue'
-// ES6 Modules or TypeScript
-import Swal from 'sweetalert2'
+
 
 // CommonJS
 
@@ -45,10 +47,25 @@ const Toast = Swal.mixin({
   })
   window.Toast = Toast
 
+Vue.component(
+    'passport-clients',
+    require('./components/passport/Clients.vue').default
+);
+
+Vue.component(
+    'passport-authorized-clients',
+    require('./components/passport/AuthorizedClients.vue').default
+);
+
+Vue.component(
+    'passport-personal-access-tokens',
+    require('./components/passport/PersonalAccessTokens.vue').default
+);
 
 const app = new Vue({
     el: '#vueId',
     router,
+    store,
     components:{
         myHeader,
         myFooter,

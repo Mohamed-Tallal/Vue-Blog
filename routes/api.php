@@ -31,3 +31,4 @@ Route::get('category-data' ,'FrontEnd\CategoryController@index');
 Route::get('post-data' ,'FrontEnd\PostController@index');
 Route::get('find-post/{id}' ,'FrontEnd\PostController@show');
 Route::post('create-post' ,'FrontEnd\ContactUsController@create');
+Route::post('store-post' ,'FrontEnd\PostController@store');

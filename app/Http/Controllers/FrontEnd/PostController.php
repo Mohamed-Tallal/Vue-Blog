@@ -10,10 +10,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
 use App\Http\Resources\PostShowResource;
 use App\Interfaces\PostRepositoryInterface;
+use App\Traits\ImageTrait;
 
 class PostController extends Controller
 {
     use ShowDatalTrait ;
+    use ImageTrait ;
     private $post = '' ;
     public function __construct(PostRepository $postRepository)
     {
@@ -40,7 +42,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -51,7 +53,8 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->SaveImage('dashboard_files',$request->image);
+        return 'ok' ;
     }
 
     /**
