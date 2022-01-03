@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('login/facebook', 'Test\LoginController@redirectToProvider');
+Route::get('login/facebook/callback', 'Test\LoginController@handleProviderCallback');
 
 Route::get('{any}', function () {
     if(request()->segments(1) != null && request()->segments(1)[0]== 'admin'){

@@ -32,3 +32,14 @@ Route::get('post-data' ,'FrontEnd\PostController@index');
 Route::get('find-post/{id}' ,'FrontEnd\PostController@show');
 Route::post('create-post' ,'FrontEnd\ContactUsController@create');
 Route::post('store-post' ,'FrontEnd\PostController@store');
+
+
+Route::prefix('auth')->group(function () {
+    Route::post('login', 'FrontEnd\Auth\AuthController@login');
+    Route::post('register', 'FrontEnd\Auth\AuthController@login');
+    Route::middleware('auth:api')->group(function(){
+        Route::post('logout', 'FrontEnd\Auth\AuthController@logout');
+        Route::get('user', 'FrontEnd\Auth\AuthController@me');
+    });
+});
+//
